@@ -167,5 +167,86 @@
       slot.textContent = year;
     });
 
+    /* ----------------------------------------------------------------
+       7. Enquiry form (contact.html)
+
+       The form has no action, method or enctype, so it never submits over
+       the network and the browser raises no insecure-submission warning.
+       This handler validates the fields and then hands a pre-filled draft
+       to the visitor's own email application via a mailto: URL. Nothing is
+       transmitted to, or stored by, this website.
+       ---------------------------------------------------------------- */
+    var enquiryForm = document.getElementById('enquiry-form');
+
+    if (enquiryForm) {
+      var ENQUIRY_ADDRESS = 'jamal@jhstat.co.uk';
+
+      // Some email clients (notably Outlook on Windows) silently truncate very
+      // long mailto: URLs. Warn rather than lose the end of someone's summary.
+      var MAILTO_SAFE_LENGTH = 1900;
+
+      var formStatus = enquiryForm.querySelector('.form__status');
+
+      var say = function (message) {
+        if (!formStatus) { return; }
+        formStatus.textContent = message;
+        formStatus.hidden = false;
+      };
+
+      var valueOf = function (id) {
+        var field = document.getElementById(id);
+        return field ? String(field.value || '').trim() : '';
+      };
+
+      enquiryForm.addEventListener('submit', function (event) {
+        // Always stop the browser submitting: no network request is ever made.
+        event.preventDefault();
+
+        // The submit event only fires once native validation has passed, but
+        // check explicitly so the guard survives a future `novalidate`.
+        if (typeof enquiryForm.checkValidity === 'function' && !enquiryForm.checkValidity()) {
+          if (typeof enquiryForm.reportValidity === 'function') {
+            enquiryForm.reportValidity();
+          }
+          return;
+        }
+
+        var support = valueOf('support');
+        var subject = 'JH Stat enquiry — ' + support;
+
+        // CRLF line breaks encode to %0D%0A, which every mail client understands.
+        var body = [
+          'Name: ' + valueOf('name'),
+          'Organisation: ' + (valueOf('organisation') || 'Not given'),
+          'Email: ' + valueOf('email'),
+          'Type of support: ' + support,
+          'Desired timescale: ' + valueOf('timescale'),
+          '',
+          'Project summary:',
+          valueOf('summary'),
+          '',
+          '--',
+          'Prepared using the enquiry form at jhstat.co.uk'
+        ].join('\r\n');
+
+        var mailtoUrl = 'mailto:' + ENQUIRY_ADDRESS +
+          '?subject=' + encodeURIComponent(subject) +
+          '&body=' + encodeURIComponent(body);
+
+        if (mailtoUrl.length > MAILTO_SAFE_LENGTH) {
+          say('Your project summary is long, and some email applications shorten very long ' +
+              'drafts. A draft should still open — please check that your summary arrived in ' +
+              'full, and paste any missing text before sending. If no draft opens, email ' +
+              ENQUIRY_ADDRESS + ' directly.');
+        } else {
+          say('Your email application should now be opening a draft message. Nothing has been ' +
+              'sent yet — review it and press send. If no draft appears, email ' +
+              ENQUIRY_ADDRESS + ' directly using the link below.');
+        }
+
+        window.location.href = mailtoUrl;
+      });
+    }
+
   });
 })();

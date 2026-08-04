@@ -143,22 +143,34 @@
 
             <div class="panel panel--note mt-6 mb-6">
               <p class="mb-0">
-                <strong>How this form works.</strong> This is a static website with no server, so the
-                form below does not transmit anything on its own. Completing it and pressing
-                <em>Prepare email</em> opens a pre-filled message in your own email application,
-                which you then review and send yourself. Nothing is submitted or stored until you
-                press send. If your device has no email application configured, please email
+                <strong>How this form works.</strong> This is a static website with no server, so
+                the form below never transmits anything over the internet. Completing it and
+                pressing <em>Prepare email</em> opens a pre-filled draft message in your own email
+                application, which you then review and send yourself. Nothing is submitted, stored
+                or sent anywhere until you press send in your own email application. If your device
+                has no email application configured, please email
                 <a href="mailto:jamal@jhstat.co.uk">jamal@jhstat.co.uk</a> directly instead.
               </p>
             </div>
 
             <!--
               ============================================================
-              MAILTO FORM
+              ENQUIRY FORM
               ============================================================
-              This form uses a mailto: action. It composes a message in the
-              visitor's own email client. It is honest (nothing is silently
-              collected) and requires no third-party service.
+              The form has NO action, method or enctype. It never submits over
+              the network, which is why the browser shows no insecure-submission
+              warning. Submission is intercepted in js/script.js (section 7),
+              which validates the fields and then builds a mailto: URL, opening
+              a draft in the visitor's own email application. Nothing is
+              transmitted to or stored by this website.
+
+              Native constraint validation (the `required` attributes below)
+              still runs first: the submit event does not fire until the browser
+              is satisfied. The handler calls checkValidity() as well, so the
+              guard holds even if `novalidate` were ever added here.
+
+              Without JavaScript the submit button is hidden by CSS and the
+              direct mailto link is shown instead — see .form__nojs.
 
               TO CONNECT A REAL FORM BACKEND LATER (recommended once traffic
               justifies it), e.g. Formspree, Basin, Web3Forms or Cloudflare
@@ -166,31 +178,31 @@
 
                 1. Create an account with the provider and obtain an endpoint,
                    e.g. https://formspree.io/f/YOUR-FORM-ID
-                2. Replace the <form> opening tag with:
+                2. Give the <form> an action and method:
 
-                   <form class="form" action="https://formspree.io/f/YOUR-FORM-ID"
-                         method="post">
+                   <form class="form" id="enquiry-form"
+                         action="https://formspree.io/f/YOUR-FORM-ID" method="post">
 
-                   (remove enctype="text/plain" — providers expect standard
-                   form encoding)
-                3. Add a honeypot field for spam protection:
+                3. Remove the submit handler in js/script.js so the form posts
+                   normally instead of building a mailto: link.
+                4. Add a honeypot field for spam protection:
 
                    <p style="display:none" aria-hidden="true">
                      <label>Leave this field empty<input name="_gotcha"></label>
                    </p>
 
-                4. Add a redirect so users land on a thank-you page:
+                5. Add a redirect so users land on a thank-you page:
 
                    <input type="hidden" name="_next"
                           value="https://jhstat.co.uk/thank-you.html">
 
-                5. Change the submit button label from "Prepare email" to "Send enquiry".
-                6. Delete the explanatory "How this form works" panel above.
-                7. UPDATE privacy.html — a form provider processes personal data
+                6. Change the submit button label from "Prepare email" to "Send enquiry".
+                7. Delete the explanatory "How this form works" panel above.
+                8. UPDATE privacy.html — a form provider processes personal data
                    on your behalf and the privacy notice must say so.
               ============================================================
             -->
-            <form class="form" action="mailto:jamal@jhstat.co.uk" method="post" enctype="text/plain">
+            <form class="form" id="enquiry-form">
 
               <div class="form__row">
                 <div class="field">
@@ -251,13 +263,27 @@
               </div>
 
               <div>
-                <button class="btn btn--primary" type="submit">Prepare email</button>
+                <button class="btn btn--primary form__submit" type="submit">Prepare email</button>
+
+                <p class="form__status small mt-4 mb-0" role="status" aria-live="polite" hidden></p>
+
+                <p class="form__nojs small mt-4 mb-0">
+                  JavaScript is turned off in your browser, so the <em>Prepare email</em> button
+                  cannot build the draft message. Please email
+                  <a href="mailto:jamal@jhstat.co.uk">jamal@jhstat.co.uk</a> directly instead.
+                </p>
+
                 <p class="small mt-4 mb-0">
                   Fields marked <span class="req" aria-hidden="true">*</span>
                   <span class="visually-hidden">with an asterisk</span> are required.
                   By preparing an email you are simply opening a draft message in your own email
-                  application. See the <a href="privacy.html">privacy notice</a> for how enquiry
-                  correspondence is handled.
+                  application. Nothing is sent until you press send in that application. See the
+                  <a href="privacy.html">privacy notice</a> for how enquiry correspondence is
+                  handled.
+                </p>
+
+                <p class="small mt-4 mb-0">
+                  <a href="mailto:jamal@jhstat.co.uk">Email jamal@jhstat.co.uk directly</a>
                 </p>
               </div>
 

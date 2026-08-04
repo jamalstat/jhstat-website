@@ -1543,6 +1543,34 @@ small,
   font-weight: 700;
 }
 
+/* Confirmation shown after the enquiry form hands a draft to the visitor's
+   email application. Hidden until the handler fills it in. */
+.form__status {
+  border-left: 4px solid var(--accent-500);
+  background: var(--accent-100);
+  border-radius: var(--radius-sm);
+  padding: var(--space-3) var(--space-4);
+  color: var(--colour-text);
+}
+
+.form__status[hidden] {
+  display: none;
+}
+
+/* Without JavaScript the submit button cannot build the mailto: draft, so it
+   is hidden and the direct-email fallback is shown in its place. */
+.form__nojs {
+  display: none;
+}
+
+html:not(.js) .form__nojs {
+  display: block;
+}
+
+html:not(.js) .form__submit {
+  display: none;
+}
+
 input[type="text"],
 input[type="email"],
 input[type="tel"],
