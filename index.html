@@ -1,54 +1,696 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-GB">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>JH Stat</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<style>
-body{
-    font-family:Arial,Helvetica,sans-serif;
-    background:#f4f8fb;
-    text-align:center;
-    padding:80px;
-}
-h1{
-    color:#003366;
-    font-size:48px;
-}
-h2{
-    color:#0066cc;
-}
-p{
-    font-size:20px;
-    max-width:700px;
-    margin:auto;
-}
-.button{
-    display:inline-block;
-    margin-top:30px;
-    padding:15px 30px;
-    background:#0066cc;
-    color:white;
-    text-decoration:none;
-    border-radius:8px;
-}
-</style>
+  <!-- ===== SEO ===== -->
+  <title>JH Stat | Expert Statistical Consulting for Health Research</title>
+  <meta name="description" content="JH Stat provides independent statistical consultancy for health research: study design, sample size, advanced analysis, psychometrics, grant support and research training. Led by Jamal Hossain, PhD.">
+  <link rel="canonical" href="https://jhstat.co.uk/">
+  <meta name="author" content="Jamal Hossain">
+  <meta name="robots" content="index, follow">
+  <meta name="theme-color" content="#0a1a2f">
+
+  <!-- ===== Open Graph / social sharing ===== -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="JH Stat">
+  <meta property="og:locale" content="en_GB">
+  <meta property="og:title" content="JH Stat | Expert Statistical Consulting for Health Research">
+  <meta property="og:description" content="Independent statistical support for study design, grant applications, advanced analysis, psychometrics, publications and research training.">
+  <meta property="og:url" content="https://jhstat.co.uk/">
+  <meta property="og:image" content="https://jhstat.co.uk/images/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="JH Stat — expert statistical consulting for health research">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="JH Stat | Expert Statistical Consulting for Health Research">
+  <meta name="twitter:description" content="Independent statistical support for study design, grant applications, advanced analysis, psychometrics, publications and research training.">
+  <meta name="twitter:image" content="https://jhstat.co.uk/images/og-image.png">
+
+  <!-- ===== Icons and styles ===== -->
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <!-- TODO (optional): add images/apple-touch-icon.png then uncomment
+  <link rel="apple-touch-icon" href="images/apple-touch-icon.png"> -->
+  <!-- Marks the document as JavaScript-enabled before the stylesheet is applied, so the
+       reveal-on-scroll animations never flash. Without JavaScript the CSS rule
+       html:not(.js) .reveal keeps all content permanently visible. -->
+  <script>document.documentElement.classList.add('js');</script>
+  <link rel="stylesheet" href="css/style.css">
+
+  <!-- ===== Structured data: ProfessionalService + Person ===== -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "ProfessionalService",
+        "@id": "https://jhstat.co.uk/#organisation",
+        "name": "JH Stat",
+        "alternateName": "JH Stat Statistical Consulting",
+        "url": "https://jhstat.co.uk/",
+        "description": "Independent statistical consultancy, research collaboration and training for health research, led by Jamal Hossain, PhD.",
+        "email": "jamal@jhstat.co.uk",
+        "slogan": "Expert Statistical Consulting for Health Research",
+        "areaServed": {
+          "@type": "Country",
+          "name": "United Kingdom"
+        },
+        "address": {
+          "@type": "PostalAddress",
+          "addressCountry": "GB"
+        },
+        "founder": { "@id": "https://jhstat.co.uk/#jamal-hossain" },
+        "knowsAbout": [
+          "Applied health statistics",
+          "Study design",
+          "Sample size and power calculations",
+          "Multilevel and mixed-effects modelling",
+          "Longitudinal data analysis",
+          "Survival analysis",
+          "Psychometrics and measurement",
+          "Causal inference",
+          "Machine learning in health research",
+          "Reproducible research"
+        ],
+        "serviceType": [
+          "Statistical consultancy",
+          "Study design and protocol development",
+          "Sample size and power calculation",
+          "Statistical analysis",
+          "Psychometrics and scale validation",
+          "Grant and funding support",
+          "Statistical review of manuscripts",
+          "Statistical training and workshops"
+        ]
+      },
+      {
+        "@type": "Person",
+        "@id": "https://jhstat.co.uk/#jamal-hossain",
+        "name": "Jamal Hossain",
+        "honorificSuffix": "PhD",
+        "jobTitle": "Founder and Principal Statistician",
+        "description": "UK-based applied health statistician, researcher and university academic with more than ten years of experience in statistics, research methods and quantitative analysis.",
+        "email": "jamal@jhstat.co.uk",
+        "url": "https://jhstat.co.uk/about.html",
+        "nationality": { "@type": "Country", "name": "United Kingdom" },
+        "worksFor": { "@id": "https://jhstat.co.uk/#organisation" },
+        "image": "https://jhstat.co.uk/images/jamal-hossain.jpg",
+        "identifier": {
+          "@type": "PropertyValue",
+          "propertyID": "ORCID",
+          "value": "https://orcid.org/0000-0002-2728-1055"
+        },
+        "sameAs": [
+          "https://orcid.org/0000-0002-2728-1055",
+          "https://www.linkedin.com/in/dr-m-jamal-hossain-fhea-47050071",
+          "https://scholar.google.com/citations?hl=en&user=kIWvuM8AAAAJ",
+          "https://www.researchgate.net/profile/Md-Hossain-122"
+        ]
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://jhstat.co.uk/#website",
+        "url": "https://jhstat.co.uk/",
+        "name": "JH Stat",
+        "inLanguage": "en-GB",
+        "publisher": { "@id": "https://jhstat.co.uk/#organisation" }
+      }
+    ]
+  }
+  </script>
 </head>
 
 <body>
+  <a class="skip-link" href="#main">Skip to main content</a>
 
-<h1>JH Stat</h1>
+  <!-- ================= HEADER ================= -->
+  <header class="site-header">
+    <div class="container header-inner">
 
-<h2>Applied Health Statistics & Data Science</h2>
+      <a class="brand" href="index.html" aria-label="JH Stat — home page">
+        <svg class="brand__mark" viewBox="0 0 64 64" aria-hidden="true" focusable="false">
+          <rect width="64" height="64" rx="12" fill="#0a1a2f"></rect>
+          <rect x="12" y="36" width="6" height="14" rx="1.5" fill="#128a9b"></rect>
+          <rect x="21" y="29" width="6" height="21" rx="1.5" fill="#1aa3b5"></rect>
+          <rect x="30" y="22" width="6" height="28" rx="1.5" fill="#7fd0da"></rect>
+          <text x="40" y="30" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="20" font-weight="700" fill="#ffffff">JH</text>
+        </svg>
+        <span class="brand__text">
+          <span class="brand__name">JH Stat</span>
+          <span class="brand__strap">Statistical Consulting</span>
+        </span>
+      </a>
 
-<p>
-Welcome to the official website of
-<strong>Dr Jamal Hossain</strong>.
-This website is currently under development.
-</p>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-navigation">
+        <span class="nav-toggle__bars" aria-hidden="true"></span>
+        <span class="visually-hidden">Open main menu</span>
+      </button>
 
-<a class="button" href="#">Coming Soon</a>
+      <nav class="nav" id="primary-navigation" aria-label="Primary">
+        <ul class="nav__list">
+          <li><a class="nav__link" href="index.html" aria-current="page">Home</a></li>
+          <li><a class="nav__link" href="about.html">About</a></li>
+          <li><a class="nav__link" href="services.html">Services</a></li>
+          <li><a class="nav__link" href="research.html">Research</a></li>
+          <li><a class="nav__link" href="publications.html">Publications</a></li>
+          <li><a class="nav__link" href="training.html">Training</a></li>
+          <li><a class="nav__link" href="blog.html">Blog</a></li>
+          <li><a class="nav__link" href="contact.html">Contact</a></li>
+        </ul>
+        <a class="btn btn--primary btn--small nav__cta" href="contact.html">Discuss Your Project</a>
+      </nav>
 
+    </div>
+  </header>
+
+  <main id="main">
+
+    <!-- ================= 1. HERO ================= -->
+    <section class="hero">
+      <div class="container">
+        <div class="hero__grid">
+
+          <div>
+            <p class="hero__brandline">JH Stat</p>
+            <h1>Expert Statistical Consulting for Health Research</h1>
+            <p class="hero__text">
+              Independent statistical support for study design, grant applications, advanced
+              analysis, psychometrics, publications and research training.
+            </p>
+
+            <div class="btn-group">
+              <a class="btn btn--primary" href="contact.html">Discuss Your Project</a>
+              <a class="btn btn--ghost" href="services.html">Explore Services</a>
+            </div>
+
+            <div class="hero__person">
+              <!-- Above the fold: load eagerly and at high priority so it does not
+                   delay the largest contentful paint. -->
+              <img class="hero__avatar" src="images/jamal-hossain-avatar.jpg"
+                   alt="Jamal Hossain, PhD, Founder and Principal Statistician at JH Stat"
+                   width="320" height="320" loading="eager" fetchpriority="high" decoding="async">
+              <div>
+                <p class="hero__person-name">Jamal Hossain, PhD</p>
+                <p class="hero__person-role">Founder and Principal Statistician</p>
+              </div>
+            </div>
+          </div>
+
+          <aside class="hero__panel">
+            <h2>At a glance</h2>
+            <ul class="hero__facts">
+              <li>
+                <b>10+ years</b>
+                <span>Experience in statistics, research methods and quantitative analysis</span>
+              </li>
+              <li>
+                <b>PhD, Social Statistics and Demography</b>
+                <span>Senior Lecturer in Applied Health Statistics</span>
+              </li>
+              <li>
+                <b>Fellow of the Higher Education Academy</b>
+                <span>Teaching, supervision and statistical consultancy</span>
+              </li>
+              <li>
+                <b>R, Stata, SPSS, AMOS</b>
+                <span>Reproducible, well-documented analysis</span>
+              </li>
+            </ul>
+          </aside>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= 2. INTRODUCTION ================= -->
+    <section class="section" aria-labelledby="intro-heading">
+      <div class="container">
+        <div class="grid grid--sidebar">
+
+          <div class="reveal">
+            <p class="eyebrow">About JH Stat</p>
+            <h2 id="intro-heading">Rigorous statistical thinking, from first idea to final publication</h2>
+            <p class="lead">
+              JH Stat is an independent statistical consultancy founded by Jamal Hossain, a UK-based
+              applied health statistician, researcher and university academic with more than ten
+              years of experience in statistics, research methods and quantitative analysis.
+            </p>
+            <p>
+              The consultancy provides statistical consultancy, research collaboration and training
+              to universities, healthcare organisations, research teams, charities, health technology
+              organisations and doctoral researchers. Work ranges from a short methodological review
+              of a draft protocol through to sustained analytical collaboration across the life of a
+              funded study.
+            </p>
+            <p>
+              The emphasis throughout is on methods that are appropriate to the question, defensible
+              under peer review, clearly explained to non-statisticians, and reproducible by others.
+            </p>
+            <p>
+              <a class="link-arrow" href="about.html">Read more about JH Stat and Jamal Hossain</a>
+            </p>
+          </div>
+
+          <div class="panel reveal">
+            <h3>How engagements usually begin</h3>
+            <ol class="list-tight">
+              <li><strong>Initial enquiry.</strong> A short description of your study, timescale and the support you need.</li>
+              <li><strong>Scoping conversation.</strong> An initial scoping conversation can be arranged, to establish whether the work is a good fit.</li>
+              <li><strong>Written proposal.</strong> The scope, timescale and fees are agreed in writing before any chargeable work begins.</li>
+              <li><strong>Delivery.</strong> Agreed outputs, documented code where relevant, and time set aside to talk the results through.</li>
+            </ol>
+            <p class="mt-4">
+              <a class="link-arrow" href="contact.html">Start an enquiry</a>
+            </p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= 3. MAIN SERVICES ================= -->
+    <section class="section section--alt" aria-labelledby="services-heading">
+      <div class="container">
+
+        <div class="section-head">
+          <p class="eyebrow">Services</p>
+          <h2 id="services-heading">How JH Stat can help</h2>
+          <p class="lead">
+            Support at any stage of the research cycle, scaled to the size of the question — from a
+            single sample size calculation to full analytical collaboration on a funded programme.
+          </p>
+        </div>
+
+        <div class="grid grid--3">
+
+          <article class="card card--hover card--accent reveal">
+            <span class="card__number" aria-hidden="true">1</span>
+            <h3>Study Design and Protocol Development</h3>
+            <p>Sharpening research questions, choosing designs and outcomes, and writing statistical analysis plans that stand up to scrutiny.</p>
+          </article>
+
+          <article class="card card--hover card--accent reveal">
+            <span class="card__number" aria-hidden="true">2</span>
+            <h3>Sample Size and Power</h3>
+            <p>Justifiable sample size and power calculations, including clustered, longitudinal and pilot designs, with sensitivity assessments.</p>
+          </article>
+
+          <article class="card card--hover card--accent reveal">
+            <span class="card__number" aria-hidden="true">3</span>
+            <h3>Statistical Analysis</h3>
+            <p>Regression, multilevel and mixed-effects models, longitudinal and survival analysis, causal methods and machine learning where appropriate.</p>
+          </article>
+
+          <article class="card card--hover card--accent reveal">
+            <span class="card__number" aria-hidden="true">4</span>
+            <h3>Psychometrics and Measurement</h3>
+            <p>Factor analysis, reliability, construct validity, and the development and validation of scales and patient-reported outcome measures.</p>
+          </article>
+
+          <article class="card card--hover card--accent reveal">
+            <span class="card__number" aria-hidden="true">5</span>
+            <h3>Grant and Funding Support</h3>
+            <p>Statistical methods sections, analysis plans, sample size justification and reviewer responses, developed collaboratively with your team.</p>
+          </article>
+
+          <article class="card card--hover card--accent reveal">
+            <span class="card__number" aria-hidden="true">6</span>
+            <h3>Publications and Statistical Review</h3>
+            <p>Independent statistical review of manuscripts, interpretation of results, reporting guidance and reproducibility checks before submission.</p>
+          </article>
+
+        </div>
+
+        <div class="btn-group">
+          <a class="btn btn--secondary" href="services.html">See all services in detail</a>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ================= 4. AREAS OF EXPERTISE ================= -->
+    <section class="section" aria-labelledby="expertise-heading">
+      <div class="container">
+
+        <div class="section-head">
+          <p class="eyebrow">Areas of expertise</p>
+          <h2 id="expertise-heading">Methodological and applied strengths</h2>
+        </div>
+
+        <div class="grid grid--split">
+          <div class="reveal">
+            <h3>Applied research areas</h3>
+            <ul class="tick-list">
+              <li>Applied health statistics</li>
+              <li>Clinical and observational research</li>
+              <li>Health services research</li>
+              <li>Public health and population health research</li>
+              <li>Patient-reported outcomes and measurement</li>
+            </ul>
+          </div>
+
+          <div class="reveal">
+            <h3>Statistical methods</h3>
+            <ul class="tick-list">
+              <li>Multilevel, mixed-effects and longitudinal models</li>
+              <li>Survival and time-to-event analysis</li>
+              <li>Psychometrics, factor analysis and scale validation</li>
+              <li>Causal inference, including propensity scores, interrupted time series and difference-in-differences</li>
+              <li>Machine learning and predictive modelling in health research</li>
+            </ul>
+          </div>
+        </div>
+
+        <p class="mt-6">
+          <a class="link-arrow" href="research.html">Explore research interests in more depth</a>
+        </p>
+
+      </div>
+    </section>
+
+    <!-- ================= 5. WHO JH STAT SUPPORTS ================= -->
+    <section class="section section--alt" aria-labelledby="audience-heading">
+      <div class="container">
+
+        <div class="section-head">
+          <p class="eyebrow">Who JH Stat supports</p>
+          <h2 id="audience-heading">Working with research teams across the health sector</h2>
+          <p class="lead">
+            Clients and collaborators typically come from research-intensive settings where
+            statistical quality has direct consequences for funding, publication and practice.
+          </p>
+        </div>
+
+        <ul class="audience-list reveal">
+          <li>Universities and academic research teams</li>
+          <li>NHS and healthcare researchers</li>
+          <li>Clinical and health research organisations</li>
+          <li>Charities and public-sector research teams</li>
+          <li>Health technology companies</li>
+          <li>Doctoral researchers seeking methodological support</li>
+          <li>Organisations commissioning statistical training</li>
+        </ul>
+
+      </div>
+    </section>
+
+    <!-- ================= 6. WHY WORK WITH JH STAT ================= -->
+    <section class="section" aria-labelledby="why-heading">
+      <div class="container">
+
+        <div class="section-head">
+          <p class="eyebrow">Why work with JH Stat</p>
+          <h2 id="why-heading">Academic rigour with the responsiveness of an independent consultant</h2>
+        </div>
+
+        <div class="grid grid--3">
+
+          <article class="card reveal">
+            <h3>Health research specialism</h3>
+            <p>The work is concentrated in health, clinical and health services research, so methods are matched to the realities of those data and the expectations of those journals and funders.</p>
+          </article>
+
+          <article class="card reveal">
+            <h3>Active academic practice</h3>
+            <p>Consultancy sits alongside ongoing university teaching, supervision and research, which keeps methods current and grounded in day-to-day research practice.</p>
+          </article>
+
+          <article class="card reveal">
+            <h3>Clear communication</h3>
+            <p>Results are explained in language that clinicians, funders and non-specialist collaborators can act on, without diluting the underlying statistics.</p>
+          </article>
+
+          <article class="card reveal">
+            <h3>Reproducible by design</h3>
+            <p>Analyses are scripted, version-aware and documented, so that findings can be re-run, audited and extended after the engagement ends.</p>
+          </article>
+
+          <article class="card reveal">
+            <h3>Honest about uncertainty</h3>
+            <p>Limitations, assumptions and sensitivity analyses are reported openly. Where the data cannot answer the question, that is said plainly.</p>
+          </article>
+
+          <article class="card reveal">
+            <h3>Flexible engagement</h3>
+            <p>Support can be a single review, a defined package of analysis, a named collaborator on a grant, or recurring advisory time for a research group.</p>
+          </article>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ================= 7. SELECTED EXPERIENCE ================= -->
+    <section class="section section--alt" aria-labelledby="experience-heading">
+      <div class="container">
+
+        <div class="section-head">
+          <p class="eyebrow">Selected experience</p>
+          <h2 id="experience-heading">Background</h2>
+          <p class="lead">
+            A summary of professional and academic experience. Fuller detail is available on the
+            about page and in the CV.
+          </p>
+        </div>
+
+        <div class="grid grid--split">
+          <ul class="timeline reveal">
+            <li>
+              <span class="timeline__period">Current</span>
+              <h3>Senior Lecturer in Applied Health Statistics</h3>
+              <p>Teaching, supervision and research in applied health statistics, including statistical training for postgraduate and professional audiences.</p>
+              <!-- TODO: add institution name and dates if you wish to state them publicly. -->
+            </li>
+            <li>
+              <span class="timeline__period">Current</span>
+              <h3>Founder and Principal Statistician, JH Stat</h3>
+              <p>Independent statistical consultancy, research collaboration and training for health research organisations and individual researchers.</p>
+            </li>
+            <li>
+              <span class="timeline__period">Ongoing</span>
+              <h3>Research collaboration on externally funded projects</h3>
+              <p>Statistical contribution to multidisciplinary health research, including design, analysis and reporting on externally funded studies.</p>
+            </li>
+            <li>
+              <span class="timeline__period">Doctoral</span>
+              <h3>PhD in Social Statistics and Demography</h3>
+              <p>Quantitative research training in advanced statistical modelling of complex, hierarchical and longitudinal population data.</p>
+            </li>
+          </ul>
+
+          <div class="panel reveal">
+            <h3>Software and tools</h3>
+            <p>Analysis is delivered in whichever environment suits your team, with code and outputs shared in a form your collaborators can use.</p>
+            <ul class="tick-list mt-4">
+              <li><strong>R</strong> — modelling, reproducible reporting, package-based workflows</li>
+              <li><strong>Stata</strong> — applied health and epidemiological analysis</li>
+              <li><strong>SPSS</strong> — analysis and teaching for applied research teams</li>
+              <li><strong>AMOS</strong> — structural equation and path modelling</li>
+            </ul>
+            <p class="small mt-4 mb-0">
+              Git, Quarto and R Markdown are used alongside these to support version control and
+              reproducible reporting.
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ================= 8. SELECTED PUBLICATIONS ================= -->
+    <section class="section" aria-labelledby="publications-heading">
+      <div class="container">
+
+        <div class="section-head">
+          <p class="eyebrow">Publications</p>
+          <h2 id="publications-heading">Selected publications</h2>
+          <p class="lead">
+            Peer-reviewed research spanning applied health statistics, measurement and quantitative
+            methods.
+          </p>
+        </div>
+
+        <!--
+          Three recent publications. The authoritative, complete list lives in
+          publications.html — when adding a paper there, update this selection too so the
+          two pages do not drift apart.
+        -->
+        <ul class="pub-list reveal">
+
+          <li class="pub">
+            <p class="pub__badges">
+              <span class="pub__year">2026</span>
+              <span class="pub__type">Article</span>
+            </p>
+            <h3 class="pub__title">
+              <a href="https://doi.org/10.1002/cam4.71952" target="_blank" rel="noopener noreferrer">Assessing the validity and acceptability of an adult quality of life questionnaire, the EORTC QLQ-C30, for adolescents with cancer</a>
+            </h3>
+            <p class="pub__authors">Samantha C. Sodergren, David Riedl, <strong class="pub__me">Jamal Hossain</strong> and Anne-Sophie Darlington</p>
+            <p class="pub__meta">Cancer Medicine, 2026; 15(5)</p>
+            <p class="pub__links">
+              <a href="https://doi.org/10.1002/cam4.71952" target="_blank" rel="noopener noreferrer">doi.org/10.1002/cam4.71952</a>
+            </p>
+          </li>
+
+          <li class="pub">
+            <p class="pub__badges">
+              <span class="pub__year">2026</span>
+              <span class="pub__type">Article</span>
+            </p>
+            <h3 class="pub__title">
+              <a href="https://doi.org/10.1016/j.clnesp.2026.103269" target="_blank" rel="noopener noreferrer">Investigating the prevalence, predictors and outcomes associated with enteral feeding intolerance in critically ill adults: a retrospective cohort study</a>
+            </h3>
+            <p class="pub__authors">Bethan Jenkins, <strong class="pub__me">M. Jamal Hossain</strong>, Maria Margarida Beja, Philip C. Calder and Luise V. Marino</p>
+            <p class="pub__meta">Clinical Nutrition ESPEN, 2026; 73</p>
+            <p class="pub__links">
+              <a href="https://doi.org/10.1016/j.clnesp.2026.103269" target="_blank" rel="noopener noreferrer">doi.org/10.1016/j.clnesp.2026.103269</a>
+            </p>
+          </li>
+
+          <li class="pub">
+            <p class="pub__badges">
+              <span class="pub__year">2025</span>
+              <span class="pub__type">Article</span>
+            </p>
+            <h3 class="pub__title">
+              <a href="https://doi.org/10.1001/jamanetworkopen.2025.49071" target="_blank" rel="noopener noreferrer">Development of a health-related quality of life tool for adolescents and young adults with cancer</a>
+            </h3>
+            <p class="pub__authors">Samantha Claire Sodergren, Olga Husson, Silvie Janssen, Gudrun Rohde, <strong class="pub__me">Jamal Hossain</strong>, Haneen Abaza and Anne-Sophie Darlington</p>
+            <p class="pub__meta">JAMA Network Open, 2025; 8(12)</p>
+            <p class="pub__links">
+              <a href="https://doi.org/10.1001/jamanetworkopen.2025.49071" target="_blank" rel="noopener noreferrer">doi.org/10.1001/jamanetworkopen.2025.49071</a>
+            </p>
+          </li>
+
+        </ul>
+
+        <div class="btn-group">
+          <a class="btn btn--secondary" href="publications.html">View all publications</a>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ================= 9. TRAINING AND WORKSHOPS ================= -->
+    <section class="section section--navy" aria-labelledby="training-heading">
+      <div class="container">
+
+        <div class="grid grid--split">
+          <div>
+            <p class="eyebrow">Training</p>
+            <h2 id="training-heading">Statistical training and workshops</h2>
+            <p class="lead">
+              Practical, applied training for research teams, delivered online or in person and
+              tailored to the data your group actually works with.
+            </p>
+            <div class="btn-group">
+              <a class="btn btn--light" href="training.html">See training options</a>
+              <a class="btn btn--ghost" href="contact.html">Enquire about a workshop</a>
+            </div>
+          </div>
+
+          <div>
+            <h3>Popular topics</h3>
+            <ul class="tick-list">
+              <li>Introduction to R for health researchers</li>
+              <li>Applied regression modelling</li>
+              <li>Multilevel and mixed-effects modelling</li>
+              <li>Survival analysis in practice</li>
+              <li>Sample size and study design</li>
+              <li>Reproducible analysis and reporting</li>
+              <li>Analysis in SPSS and Stata for applied teams</li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ================= 10. CONTACT CALL TO ACTION ================= -->
+    <section class="cta" aria-labelledby="cta-heading">
+      <div class="container">
+        <h2 id="cta-heading">Discuss your project</h2>
+        <p>
+          Whether you need a sample size justification for a single study or a statistical
+          collaborator for a multi-year programme, an initial scoping conversation can be
+          arranged. The scope, timescale and fees are agreed in writing before any chargeable
+          work begins.
+        </p>
+        <div class="btn-group btn-group--centred">
+          <a class="btn btn--primary" href="contact.html">Start an enquiry</a>
+          <a class="btn btn--ghost" href="mailto:jamal@jhstat.co.uk">Email jamal@jhstat.co.uk</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ================= FOOTER ================= -->
+  <footer class="site-footer">
+    <div class="container">
+
+      <div class="footer-grid">
+
+        <div class="footer-brand">
+          <span class="brand__name">JH Stat</span>
+          <p>
+            Independent statistical consultancy, research collaboration and training for health
+            research. Founded and led by Jamal Hossain, PhD, Founder and Principal Statistician.
+          </p>
+          <p class="footer-independence">
+            JH Stat is an independent consultancy and does not imply institutional endorsement.
+          </p>
+        </div>
+
+        <div>
+          <h2>Site</h2>
+          <ul class="footer-list">
+            <li><a href="about.html">About</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="research.html">Research</a></li>
+            <li><a href="publications.html">Publications</a></li>
+            <li><a href="training.html">Training</a></li>
+            <li><a href="blog.html">Blog</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h2>Services</h2>
+          <ul class="footer-list">
+            <li><a href="services.html#study-design">Study design</a></li>
+            <li><a href="services.html#sample-size">Sample size and power</a></li>
+            <li><a href="services.html#analysis">Statistical analysis</a></li>
+            <li><a href="services.html#psychometrics">Psychometrics</a></li>
+            <li><a href="services.html#grants">Grant support</a></li>
+            <li><a href="services.html#review">Statistical review</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h2>Contact</h2>
+          <ul class="footer-list">
+            <li><a href="mailto:jamal@jhstat.co.uk">jamal@jhstat.co.uk</a></li>
+            <li>United Kingdom</li>
+            <li><a href="https://www.linkedin.com/in/dr-m-jamal-hossain-fhea-47050071" rel="noopener">LinkedIn</a></li>
+            <li><a href="https://orcid.org/0000-0002-2728-1055" rel="noopener">ORCID</a></li>
+          </ul>
+        </div>
+
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; <span data-current-year>2026</span> JH Stat. All rights reserved.</p>
+        <ul>
+          <li><a href="privacy.html">Privacy notice</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="sitemap.xml">Sitemap</a></li>
+        </ul>
+      </div>
+
+    </div>
+  </footer>
+
+  <script src="js/script.js" defer></script>
 </body>
 </html>

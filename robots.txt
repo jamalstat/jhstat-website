@@ -1,0 +1,7 @@
+# robots.txt for https://jhstat.co.uk
+# All well-behaved crawlers may index the whole site.
+
+User-agent: *
+Allow: /
+
+Sitemap: https://jhstat.co.uk/sitemap.xml
