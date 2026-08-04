@@ -126,6 +126,11 @@
         <div class="panel panel--note reveal">
           <h2 id="notice-heading">The blog is in preparation</h2>
           <p>
+            The JH Stat blog is currently under development. Planned articles will cover applied
+            statistics, health research methods, responsible use of AI in health research and
+            reproducible analysis.
+          </p>
+          <p>
             No articles have been published yet. The three cards below are
             <strong>planned topics</strong>, shown to indicate the kind of writing this section
             will contain — they are not published articles and cannot yet be read.
@@ -148,10 +153,9 @@
         <ul class="category-list">
           <li>Applied statistics</li>
           <li>Health research methods</li>
-          <li>AI in healthcare</li>
-          <li>Research reporting</li>
-          <li>Statistical software</li>
-          <li>Academic careers</li>
+          <li>Responsible AI in health research</li>
+          <li>Statistical reporting</li>
+          <li>Reproducible research</li>
         </ul>
       </div>
     </section>
@@ -164,13 +168,14 @@
           <p class="eyebrow">Planned</p>
           <h2 id="posts-heading">Topics in preparation</h2>
           <p class="lead">
-            These are sample placeholder entries. None has been written or published.
+            Each topic below is in preparation. None has been written or published yet, so there is
+            nothing to read at this stage.
           </p>
         </div>
 
         <!--
           ============================================================
-          TODO — HOW TO PUBLISH A REAL ARTICLE
+          HOW TO PUBLISH A REAL ARTICLE
           ============================================================
           This is a static site, so each article becomes its own HTML file.
 
@@ -183,9 +188,10 @@
              href="../css/style.css" and href="../index.html".
           4. Write the article inside <main> using the .prose class for the
              body text.
-          5. Replace one of the placeholder cards below with a real card:
+          5. Replace one of the in-preparation cards below with a real card. Only
+             add a date and a reading time once the article genuinely exists:
 
-             <article class="post-card" data-tags="applied-statistics">
+             <article class="post-card">
                <div class="post-card__meta">
                  <span class="badge">Applied statistics</span>
                  <time datetime="2026-09-14">14 September 2026</time>
@@ -203,13 +209,19 @@
           ============================================================
         -->
 
-        <div class="grid grid--3" id="post-list">
+        <!--
+          These cards carry no filter wiring: there is no filter bar on this page and every
+          card is in preparation, so a filter would have nothing to do. If real articles are
+          published and a filter bar is added later, reinstate data-tags on each card and an
+          id on this container (see the filter bar in publications.html for the pattern).
+        -->
+        <div class="grid grid--3">
 
-          <article class="post-card panel--placeholder reveal" data-tags="applied-statistics">
-            <span class="placeholder-flag">Planned article — not yet written</span>
+          <article class="post-card panel--placeholder reveal">
+            <span class="placeholder-flag">In preparation — not yet written</span>
             <div class="post-card__meta">
               <span class="badge badge--muted">Applied statistics</span>
-              <span>Planned</span>
+              <span>Planned article</span>
             </div>
             <h3>What a sample size calculation is actually telling you</h3>
             <p>
@@ -220,11 +232,11 @@
             <p class="post-card__footer"><em>Not yet published</em></p>
           </article>
 
-          <article class="post-card panel--placeholder reveal" data-tags="research-methods reporting">
-            <span class="placeholder-flag">Planned article — not yet written</span>
+          <article class="post-card panel--placeholder reveal">
+            <span class="placeholder-flag">In preparation — not yet written</span>
             <div class="post-card__meta">
               <span class="badge badge--muted">Health research methods</span>
-              <span>Planned</span>
+              <span>Planned article</span>
             </div>
             <h3>Why complete-case analysis is rarely the right default</h3>
             <p>
@@ -235,11 +247,11 @@
             <p class="post-card__footer"><em>Not yet published</em></p>
           </article>
 
-          <article class="post-card panel--placeholder reveal" data-tags="ai-healthcare machine-learning">
-            <span class="placeholder-flag">Planned article — not yet written</span>
+          <article class="post-card panel--placeholder reveal">
+            <span class="placeholder-flag">In preparation — not yet written</span>
             <div class="post-card__meta">
-              <span class="badge badge--muted">AI in healthcare</span>
-              <span>Planned</span>
+              <span class="badge badge--muted">Responsible AI in health research</span>
+              <span>Planned article</span>
             </div>
             <h3>When machine learning beats regression — and when it does not</h3>
             <p>
@@ -285,6 +297,9 @@
           <p>
             Independent statistical consultancy, research collaboration and training for health
             research. Founded and led by Jamal Hossain, PhD, Founder and Principal Statistician.
+          </p>
+          <p class="footer-independence">
+            JH Stat is an independent consultancy and does not imply institutional endorsement.
           </p>
         </div>
 

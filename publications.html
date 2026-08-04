@@ -6,7 +6,7 @@
 
   <!-- ===== SEO ===== -->
   <title>Publications | JH Stat</title>
-  <meta name="description" content="Peer-reviewed publications by Jamal Hossain, PhD, spanning applied health statistics, measurement and quantitative research methods, with links to Google Scholar, ORCID, PubMed and ResearchGate.">
+  <meta name="description" content="Peer-reviewed publications by Jamal Hossain, PhD, spanning applied health statistics, measurement and quantitative research methods, with links to Google Scholar, ORCID and ResearchGate.">
   <link rel="canonical" href="https://jhstat.co.uk/publications.html">
   <meta name="author" content="Jamal Hossain">
   <meta name="robots" content="index, follow">
@@ -52,9 +52,9 @@
   }
   </script>
   <!--
-    TODO (optional): once real publications are listed below, you can add a
-    ScholarlyArticle entry per paper inside an ItemList here for richer search results.
-    Only do this for publications that genuinely exist, with correct DOIs.
+    Optional future enhancement: a ScholarlyArticle entry per paper inside an ItemList
+    would give richer search results. Only add entries for publications that genuinely
+    exist, and copy the DOI from the entry below rather than retyping it.
   -->
 </head>
 
@@ -114,8 +114,8 @@
         </nav>
         <h1>Publications</h1>
         <p>
-          Peer-reviewed research spanning applied health statistics, measurement and quantitative
-          research methods.
+          Peer-reviewed research spanning applied health statistics, outcome measurement,
+          survey methodology and quantitative research methods.
         </p>
       </div>
     </section>
@@ -130,23 +130,8 @@
 
         <!--
           Academic profile links. If any of these URLs change, update them here and
-          also in the "sameAs" array of the structured data block in index.html.
-
-          PubMed has no personal profile pages, so the link below runs a PubMed
-          search on your ORCID iD. That is precise — it can never return someone
-          else's papers — but it only finds articles where the publisher attached
-          your ORCID to the record. At the time this page was built that search
-          returned a single article, so most of your PubMed-indexed work is not
-          being picked up.
-
-          Two options:
-            (a) Leave it as is and add your ORCID when submitting future papers,
-                so coverage improves over time; or
-            (b) Swap it for an author-name search, e.g.
-                https://pubmed.ncbi.nlm.nih.gov/?term=Hossain+MJ%5BAuthor%5D
-                — but check the results first, because name searches on common
-                surnames pull in other people's papers.
-          If neither works well, delete that <li> entirely.
+          also in the "sameAs" array of the structured data block in index.html
+          and about.html, and in the footer of every page.
         -->
         <ul class="profile-links">
           <li>
@@ -160,13 +145,13 @@
             </a>
           </li>
           <li>
-            <a href="https://pubmed.ncbi.nlm.nih.gov/?term=orcid_0000-0002-2728-1055%5Bauid%5D" rel="noopener">
-              <span aria-hidden="true">&#9679;</span> PubMed
+            <a href="https://www.researchgate.net/profile/Md-Hossain-122" rel="noopener">
+              <span aria-hidden="true">&#9679;</span> ResearchGate
             </a>
           </li>
           <li>
-            <a href="https://www.researchgate.net/profile/Md-Hossain-122" rel="noopener">
-              <span aria-hidden="true">&#9679;</span> ResearchGate
+            <a href="https://www.linkedin.com/in/dr-m-jamal-hossain-fhea-47050071" rel="noopener">
+              <span aria-hidden="true">&#9679;</span> LinkedIn
             </a>
           </li>
         </ul>
@@ -181,140 +166,185 @@
           <p class="eyebrow">Journal articles</p>
           <h2 id="pub-list-heading">Selected peer-reviewed publications</h2>
           <p class="lead">
-            Every entry below is a clearly marked placeholder. Replace each one with a real
-            publication, keeping the same structure.
+            Listed newest first. Where a digital object identifier (DOI) is available, the title
+            links through to the published record.
           </p>
         </div>
 
         <!--
           ============================================================
-          TODO — REPLACE PLACEHOLDERS WITH REAL PUBLICATIONS
+          TEMPLATE FOR A NEW PUBLICATION
           ============================================================
-          Template for one entry (copy, paste and edit as many as you need).
-          Remember to remove class="panel--placeholder" and the
-          <span class="placeholder-flag"> line from each completed entry.
+          Copy this block, edit it, and insert it in date order (newest first).
+          Only add publications that genuinely exist, and copy the DOI from the
+          publisher record rather than retyping it.
 
-          <li class="pub" data-tags="health-statistics psychometrics">
-            <span class="pub__year">2024</span>
-            <h3 class="pub__title">Full title of the article</h3>
-            <p class="pub__authors">Hossain J, Surname A, Surname B</p>
-            <p class="pub__meta">Journal Name, 2024; 12(3): 145&ndash;158</p>
-            <p class="pub__desc">One or two sentences on what the study did and what it found.</p>
-            <p class="pub__links">
-              <a href="https://doi.org/10.XXXX/XXXXX" rel="noopener">Read the article (DOI)</a>
+          <li class="pub" data-tags="article">
+            <p class="pub__badges">
+              <span class="pub__year">2027</span>
+              <span class="pub__type">Article</span>
             </p>
-            <ul class="tags">
-              <li class="tag tag--accent">Health statistics</li>
-              <li class="tag tag--accent">Psychometrics</li>
-            </ul>
+            <h3 class="pub__title">
+              <a href="https://doi.org/10.XXXX/XXXXX" target="_blank" rel="noopener noreferrer">Full title of the article</a>
+            </h3>
+            <p class="pub__authors">Author list exactly as printed on the paper, with
+              <strong class="pub__me">Jamal Hossain</strong> marked up in place</p>
+            <p class="pub__meta">Journal Name, 2027; 12(3)</p>
+            <p class="pub__links">
+              <a href="https://doi.org/10.XXXX/XXXXX" target="_blank" rel="noopener noreferrer">doi.org/10.XXXX/XXXXX</a>
+            </p>
           </li>
 
-          The data-tags attribute powers the filter buttons above the list.
-          Use these exact values so the filters keep working:
-            health-statistics | psychometrics | longitudinal | survival
-            causal | machine-learning | methods
-          A publication may carry several tags separated by spaces.
+          The data-tags attribute powers the type filter above the list.
+          Use one of these exact values so the filters keep working:
+            article | working-paper | conference | thesis
+          Do not add a description unless it is factually accurate — this page
+          deliberately carries no summaries or abstracts.
           ============================================================
         -->
 
         <!-- Filter bar — progressive enhancement, see js/script.js.
-             Without JavaScript every publication simply stays visible. -->
+             Filters by publication type. Without JavaScript every publication
+             simply stays visible. -->
         <div class="filter-bar" data-filter-target="#publication-list" data-filter-status="#filter-status">
           <button class="filter-btn" type="button" data-filter="all" aria-pressed="true">All</button>
-          <button class="filter-btn" type="button" data-filter="health-statistics" aria-pressed="false">Health statistics</button>
-          <button class="filter-btn" type="button" data-filter="psychometrics" aria-pressed="false">Psychometrics</button>
-          <button class="filter-btn" type="button" data-filter="longitudinal" aria-pressed="false">Longitudinal</button>
-          <button class="filter-btn" type="button" data-filter="survival" aria-pressed="false">Survival analysis</button>
-          <button class="filter-btn" type="button" data-filter="causal" aria-pressed="false">Causal inference</button>
-          <button class="filter-btn" type="button" data-filter="machine-learning" aria-pressed="false">Machine learning</button>
-          <button class="filter-btn" type="button" data-filter="methods" aria-pressed="false">Methods</button>
+          <button class="filter-btn" type="button" data-filter="article" aria-pressed="false">Articles</button>
+          <button class="filter-btn" type="button" data-filter="working-paper" aria-pressed="false">Working papers</button>
+          <button class="filter-btn" type="button" data-filter="conference" aria-pressed="false">Conference abstracts</button>
+          <button class="filter-btn" type="button" data-filter="thesis" aria-pressed="false">PhD thesis</button>
         </div>
         <p id="filter-status" class="visually-hidden" role="status" aria-live="polite"></p>
 
         <ul class="pub-list" id="publication-list">
 
-          <li class="pub panel--placeholder" data-tags="health-statistics methods">
-            <span class="placeholder-flag">Placeholder 1 — replace with a real publication</span>
-            <span class="pub__year">Year</span>
-            <h3 class="pub__title">Publication title</h3>
-            <p class="pub__authors">Author list, in the order printed on the paper</p>
-            <p class="pub__meta">Journal name, year; volume(issue): pages</p>
-            <p class="pub__desc">One or two sentences describing the study, the methods used and the main contribution.</p>
-            <p class="pub__links"><span class="small">DOI or article link to be added</span></p>
-            <ul class="tags">
-              <li class="tag tag--accent">Research area tag</li>
-              <li class="tag tag--accent">Method tag</li>
-            </ul>
+          <li class="pub" data-tags="article">
+            <p class="pub__badges">
+              <span class="pub__year">2026</span>
+              <span class="pub__type">Article</span>
+            </p>
+            <h3 class="pub__title">
+              <a href="https://doi.org/10.1002/cam4.71952" target="_blank" rel="noopener noreferrer">Assessing the validity and acceptability of an adult quality of life questionnaire, the EORTC QLQ-C30, for adolescents with cancer</a>
+            </h3>
+            <p class="pub__authors">Samantha C. Sodergren, David Riedl, <strong class="pub__me">Jamal Hossain</strong> and Anne-Sophie Darlington</p>
+            <p class="pub__meta">Cancer Medicine, 2026; 15(5)</p>
+            <p class="pub__links">
+              <a href="https://doi.org/10.1002/cam4.71952" target="_blank" rel="noopener noreferrer">doi.org/10.1002/cam4.71952</a>
+            </p>
           </li>
 
-          <li class="pub panel--placeholder" data-tags="psychometrics">
-            <span class="placeholder-flag">Placeholder 2 — replace with a real publication</span>
-            <span class="pub__year">Year</span>
-            <h3 class="pub__title">Publication title</h3>
-            <p class="pub__authors">Author list, in the order printed on the paper</p>
-            <p class="pub__meta">Journal name, year; volume(issue): pages</p>
-            <p class="pub__desc">One or two sentences describing the study, the methods used and the main contribution.</p>
-            <p class="pub__links"><span class="small">DOI or article link to be added</span></p>
-            <ul class="tags">
-              <li class="tag tag--accent">Research area tag</li>
-              <li class="tag tag--accent">Method tag</li>
-            </ul>
+          <li class="pub" data-tags="article">
+            <p class="pub__badges">
+              <span class="pub__year">2026</span>
+              <span class="pub__type">Article</span>
+            </p>
+            <h3 class="pub__title">
+              <a href="https://doi.org/10.1016/j.clnesp.2026.103269" target="_blank" rel="noopener noreferrer">Investigating the prevalence, predictors and outcomes associated with enteral feeding intolerance in critically ill adults: a retrospective cohort study</a>
+            </h3>
+            <p class="pub__authors">Bethan Jenkins, <strong class="pub__me">M. Jamal Hossain</strong>, Maria Margarida Beja, Philip C. Calder and Luise V. Marino</p>
+            <p class="pub__meta">Clinical Nutrition ESPEN, 2026; 73</p>
+            <p class="pub__links">
+              <a href="https://doi.org/10.1016/j.clnesp.2026.103269" target="_blank" rel="noopener noreferrer">doi.org/10.1016/j.clnesp.2026.103269</a>
+            </p>
           </li>
 
-          <li class="pub panel--placeholder" data-tags="longitudinal health-statistics">
-            <span class="placeholder-flag">Placeholder 3 — replace with a real publication</span>
-            <span class="pub__year">Year</span>
-            <h3 class="pub__title">Publication title</h3>
-            <p class="pub__authors">Author list, in the order printed on the paper</p>
-            <p class="pub__meta">Journal name, year; volume(issue): pages</p>
-            <p class="pub__desc">One or two sentences describing the study, the methods used and the main contribution.</p>
-            <p class="pub__links"><span class="small">DOI or article link to be added</span></p>
-            <ul class="tags">
-              <li class="tag tag--accent">Research area tag</li>
-              <li class="tag tag--accent">Method tag</li>
-            </ul>
+          <li class="pub" data-tags="working-paper">
+            <p class="pub__badges">
+              <span class="pub__year">2026</span>
+              <span class="pub__type">Working paper</span>
+            </p>
+            <h3 class="pub__title">
+              <a href="https://doi.org/10.17169/refubium-51278" target="_blank" rel="noopener noreferrer">Kernel density estimation under masking of geolocations with applications to DHS data</a>
+            </h3>
+            <p class="pub__authors">Lorena Gril, <strong class="pub__me">Md Jamal Hossain</strong>, Nikos Tzavidis and Ulrich Rendtel</p>
+            <p class="pub__meta">Working paper, 2026</p>
+            <p class="pub__links">
+              <a href="https://doi.org/10.17169/refubium-51278" target="_blank" rel="noopener noreferrer">doi.org/10.17169/refubium-51278</a>
+            </p>
           </li>
 
-          <li class="pub panel--placeholder" data-tags="survival causal">
-            <span class="placeholder-flag">Placeholder 4 — replace with a real publication</span>
-            <span class="pub__year">Year</span>
-            <h3 class="pub__title">Publication title</h3>
-            <p class="pub__authors">Author list, in the order printed on the paper</p>
-            <p class="pub__meta">Journal name, year; volume(issue): pages</p>
-            <p class="pub__desc">One or two sentences describing the study, the methods used and the main contribution.</p>
-            <p class="pub__links"><span class="small">DOI or article link to be added</span></p>
-            <ul class="tags">
-              <li class="tag tag--accent">Research area tag</li>
-              <li class="tag tag--accent">Method tag</li>
-            </ul>
+          <li class="pub" data-tags="article">
+            <p class="pub__badges">
+              <span class="pub__year">2025</span>
+              <span class="pub__type">Article</span>
+            </p>
+            <h3 class="pub__title">
+              <a href="https://doi.org/10.1001/jamanetworkopen.2025.49071" target="_blank" rel="noopener noreferrer">Development of a health-related quality of life tool for adolescents and young adults with cancer</a>
+            </h3>
+            <p class="pub__authors">Samantha Claire Sodergren, Olga Husson, Silvie Janssen, Gudrun Rohde, <strong class="pub__me">Jamal Hossain</strong>, Haneen Abaza and Anne-Sophie Darlington</p>
+            <p class="pub__meta">JAMA Network Open, 2025; 8(12)</p>
+            <p class="pub__links">
+              <a href="https://doi.org/10.1001/jamanetworkopen.2025.49071" target="_blank" rel="noopener noreferrer">doi.org/10.1001/jamanetworkopen.2025.49071</a>
+            </p>
           </li>
 
-          <li class="pub panel--placeholder" data-tags="machine-learning health-statistics">
-            <span class="placeholder-flag">Placeholder 5 — replace with a real publication</span>
-            <span class="pub__year">Year</span>
-            <h3 class="pub__title">Publication title</h3>
-            <p class="pub__authors">Author list, in the order printed on the paper</p>
-            <p class="pub__meta">Journal name, year; volume(issue): pages</p>
-            <p class="pub__desc">One or two sentences describing the study, the methods used and the main contribution.</p>
-            <p class="pub__links"><span class="small">DOI or article link to be added</span></p>
-            <ul class="tags">
-              <li class="tag tag--accent">Research area tag</li>
-              <li class="tag tag--accent">Method tag</li>
-            </ul>
+          <li class="pub" data-tags="conference">
+            <p class="pub__badges">
+              <span class="pub__year">2025</span>
+              <span class="pub__type">Conference abstract</span>
+            </p>
+            <h3 class="pub__title">
+              <a href="https://doi.org/10.1016/j.clnesp.2025.071050" target="_blank" rel="noopener noreferrer">Nutrition-focused program improves sarcopenia status and reduces physician visits and hospitalisations for patients with COPD and poor nutrition status</a>
+            </h3>
+            <p class="pub__authors">F. S. Rafique, B. Hardman, <strong class="pub__me">M. J. Hossain</strong>, R. Stevenson and K. W. Kerr</p>
+            <p class="pub__meta">Clinical Nutrition ESPEN, 2025; 69</p>
+            <p class="pub__links">
+              <a href="https://doi.org/10.1016/j.clnesp.2025.071050" target="_blank" rel="noopener noreferrer">doi.org/10.1016/j.clnesp.2025.071050</a>
+            </p>
           </li>
 
-          <li class="pub panel--placeholder" data-tags="methods">
-            <span class="placeholder-flag">Placeholder 6 — replace with a real publication</span>
-            <span class="pub__year">Year</span>
-            <h3 class="pub__title">Publication title</h3>
-            <p class="pub__authors">Author list, in the order printed on the paper</p>
-            <p class="pub__meta">Journal name, year; volume(issue): pages</p>
-            <p class="pub__desc">One or two sentences describing the study, the methods used and the main contribution.</p>
-            <p class="pub__links"><span class="small">DOI or article link to be added</span></p>
-            <ul class="tags">
-              <li class="tag tag--accent">Research area tag</li>
-              <li class="tag tag--accent">Method tag</li>
-            </ul>
+          <li class="pub" data-tags="thesis">
+            <p class="pub__badges">
+              <span class="pub__year">2023</span>
+              <span class="pub__type">PhD thesis</span>
+            </p>
+            <h3 class="pub__title">Statistical estimation and inference with aggregated and displaced georeferenced data</h3>
+            <p class="pub__authors"><strong class="pub__me">Jamal Hossain</strong></p>
+            <p class="pub__meta">PhD thesis, University of Southampton, 2023</p>
+          </li>
+
+          <li class="pub" data-tags="article">
+            <p class="pub__badges">
+              <span class="pub__year">2020</span>
+              <span class="pub__type">Article</span>
+            </p>
+            <h3 class="pub__title">
+              <a href="https://doi.org/10.1371/journal.pone.0230906" target="_blank" rel="noopener noreferrer">Disaggregate level estimates and spatial mapping of food insecurity in Bangladesh by linking survey and census data</a>
+            </h3>
+            <p class="pub__authors"><strong class="pub__me">Md Jamal Hossain</strong>, Sumonkanti Das, Hukum Chandra and Mohammad Amirul Islam</p>
+            <p class="pub__meta">PLOS ONE, 2020; 15(4)</p>
+            <p class="pub__links">
+              <a href="https://doi.org/10.1371/journal.pone.0230906" target="_blank" rel="noopener noreferrer">doi.org/10.1371/journal.pone.0230906</a>
+            </p>
+          </li>
+
+          <li class="pub" data-tags="article">
+            <p class="pub__badges">
+              <span class="pub__year">2019</span>
+              <span class="pub__type">Article</span>
+            </p>
+            <h3 class="pub__title">
+              <a href="https://doi.org/10.1007/s40953-018-0134-7" target="_blank" rel="noopener noreferrer">Non-farm income and consumption expenditures in rural Bangladesh: empirical evidence from multilevel regression modelling</a>
+            </h3>
+            <p class="pub__authors"><strong class="pub__me">M. J. Hossain</strong> and A. K. M. Abdullah Al-Amin</p>
+            <p class="pub__meta">Journal of Quantitative Economics, 2019; 17, 377&ndash;396</p>
+            <p class="pub__links">
+              <a href="https://doi.org/10.1007/s40953-018-0134-7" target="_blank" rel="noopener noreferrer">doi.org/10.1007/s40953-018-0134-7</a>
+            </p>
+          </li>
+
+          <li class="pub" data-tags="article">
+            <p class="pub__badges">
+              <span class="pub__year">2019</span>
+              <span class="pub__type">Article</span>
+            </p>
+            <h3 class="pub__title">
+              <a href="https://doi.org/10.1016/j.wdp.2019.02.014" target="_blank" rel="noopener noreferrer">Impact of non-farm income on welfare in rural Bangladesh: Multilevel mixed-effects regression approach</a>
+            </h3>
+            <p class="pub__authors">A. K. M. Abdullah Al-Amin and <strong class="pub__me">M. J. Hossain</strong></p>
+            <p class="pub__meta">World Development Perspectives, 2019; 13, 95&ndash;102</p>
+            <p class="pub__links">
+              <a href="https://doi.org/10.1016/j.wdp.2019.02.014" target="_blank" rel="noopener noreferrer">doi.org/10.1016/j.wdp.2019.02.014</a>
+            </p>
           </li>
 
         </ul>
@@ -322,45 +352,11 @@
       </div>
     </section>
 
-    <!-- ================= OTHER OUTPUTS ================= -->
-    <section class="section section--alt" aria-labelledby="other-heading">
-      <div class="container">
-
-        <div class="section-head">
-          <p class="eyebrow">Other outputs</p>
-          <h2 id="other-heading">Beyond journal articles</h2>
-          <p class="lead">
-            Optional sections for outputs that do not fit the journal-article format. Delete any you
-            do not need.
-          </p>
-        </div>
-
-        <div class="grid grid--3">
-
-          <article class="card panel--placeholder reveal">
-            <span class="placeholder-flag">Optional section</span>
-            <h3>Conference presentations</h3>
-            <p>List selected conference papers and posters: title, conference, location and year.</p>
-            <!-- TODO: add entries or delete this card. -->
-          </article>
-
-          <article class="card panel--placeholder reveal">
-            <span class="placeholder-flag">Optional section</span>
-            <h3>Reports and preprints</h3>
-            <p>Technical reports, commissioned evaluations and preprints, with links where public.</p>
-            <!-- TODO: add entries or delete this card. -->
-          </article>
-
-          <article class="card panel--placeholder reveal">
-            <span class="placeholder-flag">Optional section</span>
-            <h3>Book chapters and teaching materials</h3>
-            <p>Chapters, open teaching resources and software or code released alongside published work.</p>
-            <!-- TODO: add entries or delete this card. -->
-          </article>
-
-        </div>
-      </div>
-    </section>
+    <!--
+      Conference papers, working papers and the doctoral thesis are listed inline above
+      with a publication-type label, rather than in separate sections. If the volume of
+      non-article outputs grows, consider splitting them into their own section here.
+    -->
 
     <!-- ================= CTA ================= -->
     <section class="cta" aria-labelledby="cta-heading">
@@ -390,6 +386,9 @@
           <p>
             Independent statistical consultancy, research collaboration and training for health
             research. Founded and led by Jamal Hossain, PhD, Founder and Principal Statistician.
+          </p>
+          <p class="footer-independence">
+            JH Stat is an independent consultancy and does not imply institutional endorsement.
           </p>
         </div>
 

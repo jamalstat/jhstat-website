@@ -2,13 +2,21 @@
 
 Downloadable documents live here.
 
-## Files the site expects (add these when you have them)
+This folder is currently empty apart from this README. **No page on the site links to a
+downloadable file at present.**
 
-| Filename | Used on | Notes |
+## Files the site has a commented-out link for
+
+Neither file exists yet. In each case the link is commented out in the HTML, so nothing on
+the live site is broken — but the link must be uncommented once the file is added.
+
+| Filename | Referenced from | Status |
 |---|---|---|
-| `jamal-hossain-cv.pdf` | `about.html` | Your academic CV. A commented-out download button in `about.html` points here — uncomment it once the file exists. |
-| `jh-stat-training-catalogue.pdf` | `training.html` (optional) | Optional one-page summary of workshops. Commented placeholder in `training.html`. |
-| `jh-stat-capability-statement.pdf` | `services.html` (optional) | Optional overview for procurement teams. |
+| `jamal-hossain-cv.pdf` | `about.html` | Not present. A commented-out download button in `about.html` points here — uncomment it once the file exists, and correct the file size stated in the button label. |
+| `jh-stat-training-catalogue.pdf` | `training.html` | Not present, and optional. A commented-out download button in `training.html` points here. |
+
+There is no capability statement on the site, and `services.html` does not reference one.
+Do not add a row to this table for a document until the HTML actually links to it.
 
 ## Guidance
 

@@ -185,9 +185,11 @@
             </div>
 
             <div class="hero__person">
+              <!-- Above the fold: load eagerly and at high priority so it does not
+                   delay the largest contentful paint. -->
               <img class="hero__avatar" src="images/jamal-hossain-avatar.jpg"
                    alt="Jamal Hossain, PhD, Founder and Principal Statistician at JH Stat"
-                   width="320" height="320" loading="lazy" decoding="async">
+                   width="320" height="320" loading="eager" fetchpriority="high" decoding="async">
               <div>
                 <p class="hero__person-name">Jamal Hossain, PhD</p>
                 <p class="hero__person-role">Founder and Principal Statistician</p>
@@ -211,7 +213,7 @@
                 <span>Teaching, supervision and statistical consultancy</span>
               </li>
               <li>
-                <b>R, Stata, SPSS, Mplus, SAS, Python</b>
+                <b>R, Stata, SPSS, AMOS</b>
                 <span>Reproducible, well-documented analysis</span>
               </li>
             </ul>
@@ -254,8 +256,8 @@
             <h3>How engagements usually begin</h3>
             <ol class="list-tight">
               <li><strong>Initial enquiry.</strong> A short description of your study, timescale and the support you need.</li>
-              <li><strong>Free scoping conversation.</strong> Typically 30 minutes, to establish whether the work is a good fit.</li>
-              <li><strong>Written proposal.</strong> Clear scope, deliverables, timeline and cost, with no obligation.</li>
+              <li><strong>Scoping conversation.</strong> An initial scoping conversation can be arranged, to establish whether the work is a good fit.</li>
+              <li><strong>Written proposal.</strong> The scope, timescale and fees are agreed in writing before any chargeable work begins.</li>
               <li><strong>Delivery.</strong> Agreed outputs, documented code where relevant, and time set aside to talk the results through.</li>
             </ol>
             <p class="mt-4">
@@ -484,10 +486,12 @@
               <li><strong>R</strong> — modelling, reproducible reporting, package-based workflows</li>
               <li><strong>Stata</strong> — applied health and epidemiological analysis</li>
               <li><strong>SPSS</strong> — analysis and teaching for applied research teams</li>
-              <li><strong>Mplus</strong> — latent variable and structural equation modelling</li>
-              <li><strong>SAS and Python</strong> — where a project or sponsor requires them</li>
-              <li><strong>Git, Quarto and R Markdown</strong> — version control and reproducible outputs</li>
+              <li><strong>AMOS</strong> — structural equation and path modelling</li>
             </ul>
+            <p class="small mt-4 mb-0">
+              Git, Quarto and R Markdown are used alongside these to support version control and
+              reproducible reporting.
+            </p>
           </div>
         </div>
 
@@ -508,37 +512,55 @@
         </div>
 
         <!--
-          TODO — REPLACE THESE PLACEHOLDERS WITH REAL PUBLICATIONS.
-          Keep three or four here on the homepage and put the full list in publications.html.
-          For each entry supply: title, author list, journal, year, DOI link and one-line summary.
+          Three recent publications. The authoritative, complete list lives in
+          publications.html — when adding a paper there, update this selection too so the
+          two pages do not drift apart.
         -->
         <ul class="pub-list reveal">
 
-          <li class="pub panel--placeholder">
-            <span class="placeholder-flag">Placeholder — replace with a real publication</span>
-            <h3 class="pub__title">Publication title goes here</h3>
-            <p class="pub__authors">Author list, in the order they appear on the paper</p>
-            <p class="pub__meta">Journal name, year, volume(issue), pages</p>
-            <p class="pub__desc">One or two sentences describing the study and its contribution.</p>
-            <p class="pub__links"><span class="small">DOI link to be added</span></p>
+          <li class="pub">
+            <p class="pub__badges">
+              <span class="pub__year">2026</span>
+              <span class="pub__type">Article</span>
+            </p>
+            <h3 class="pub__title">
+              <a href="https://doi.org/10.1002/cam4.71952" target="_blank" rel="noopener noreferrer">Assessing the validity and acceptability of an adult quality of life questionnaire, the EORTC QLQ-C30, for adolescents with cancer</a>
+            </h3>
+            <p class="pub__authors">Samantha C. Sodergren, David Riedl, <strong class="pub__me">Jamal Hossain</strong> and Anne-Sophie Darlington</p>
+            <p class="pub__meta">Cancer Medicine, 2026; 15(5)</p>
+            <p class="pub__links">
+              <a href="https://doi.org/10.1002/cam4.71952" target="_blank" rel="noopener noreferrer">doi.org/10.1002/cam4.71952</a>
+            </p>
           </li>
 
-          <li class="pub panel--placeholder">
-            <span class="placeholder-flag">Placeholder — replace with a real publication</span>
-            <h3 class="pub__title">Publication title goes here</h3>
-            <p class="pub__authors">Author list, in the order they appear on the paper</p>
-            <p class="pub__meta">Journal name, year, volume(issue), pages</p>
-            <p class="pub__desc">One or two sentences describing the study and its contribution.</p>
-            <p class="pub__links"><span class="small">DOI link to be added</span></p>
+          <li class="pub">
+            <p class="pub__badges">
+              <span class="pub__year">2026</span>
+              <span class="pub__type">Article</span>
+            </p>
+            <h3 class="pub__title">
+              <a href="https://doi.org/10.1016/j.clnesp.2026.103269" target="_blank" rel="noopener noreferrer">Investigating the prevalence, predictors and outcomes associated with enteral feeding intolerance in critically ill adults: a retrospective cohort study</a>
+            </h3>
+            <p class="pub__authors">Bethan Jenkins, <strong class="pub__me">M. Jamal Hossain</strong>, Maria Margarida Beja, Philip C. Calder and Luise V. Marino</p>
+            <p class="pub__meta">Clinical Nutrition ESPEN, 2026; 73</p>
+            <p class="pub__links">
+              <a href="https://doi.org/10.1016/j.clnesp.2026.103269" target="_blank" rel="noopener noreferrer">doi.org/10.1016/j.clnesp.2026.103269</a>
+            </p>
           </li>
 
-          <li class="pub panel--placeholder">
-            <span class="placeholder-flag">Placeholder — replace with a real publication</span>
-            <h3 class="pub__title">Publication title goes here</h3>
-            <p class="pub__authors">Author list, in the order they appear on the paper</p>
-            <p class="pub__meta">Journal name, year, volume(issue), pages</p>
-            <p class="pub__desc">One or two sentences describing the study and its contribution.</p>
-            <p class="pub__links"><span class="small">DOI link to be added</span></p>
+          <li class="pub">
+            <p class="pub__badges">
+              <span class="pub__year">2025</span>
+              <span class="pub__type">Article</span>
+            </p>
+            <h3 class="pub__title">
+              <a href="https://doi.org/10.1001/jamanetworkopen.2025.49071" target="_blank" rel="noopener noreferrer">Development of a health-related quality of life tool for adolescents and young adults with cancer</a>
+            </h3>
+            <p class="pub__authors">Samantha Claire Sodergren, Olga Husson, Silvie Janssen, Gudrun Rohde, <strong class="pub__me">Jamal Hossain</strong>, Haneen Abaza and Anne-Sophie Darlington</p>
+            <p class="pub__meta">JAMA Network Open, 2025; 8(12)</p>
+            <p class="pub__links">
+              <a href="https://doi.org/10.1001/jamanetworkopen.2025.49071" target="_blank" rel="noopener noreferrer">doi.org/10.1001/jamanetworkopen.2025.49071</a>
+            </p>
           </li>
 
         </ul>
@@ -590,9 +612,10 @@
       <div class="container">
         <h2 id="cta-heading">Discuss your project</h2>
         <p>
-          Whether you need a sample size justification by the end of the week or a statistical
-          collaborator for a multi-year programme, the first conversation is free and without
-          obligation.
+          Whether you need a sample size justification for a single study or a statistical
+          collaborator for a multi-year programme, an initial scoping conversation can be
+          arranged. The scope, timescale and fees are agreed in writing before any chargeable
+          work begins.
         </p>
         <div class="btn-group btn-group--centred">
           <a class="btn btn--primary" href="contact.html">Start an enquiry</a>
@@ -614,6 +637,9 @@
           <p>
             Independent statistical consultancy, research collaboration and training for health
             research. Founded and led by Jamal Hossain, PhD, Founder and Principal Statistician.
+          </p>
+          <p class="footer-independence">
+            JH Stat is an independent consultancy and does not imply institutional endorsement.
           </p>
         </div>
 

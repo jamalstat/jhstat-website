@@ -1259,6 +1259,15 @@ small,
   border-left: 4px solid var(--accent-500);
 }
 
+/* Year and publication-type labels sit on one wrapping row above the title. */
+.pub__badges {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-2);
+  margin-bottom: var(--space-3);
+}
+
 .pub__year {
   display: inline-block;
   font-size: var(--fs-xs);
@@ -1271,15 +1280,53 @@ small,
   margin-bottom: var(--space-3);
 }
 
+/* Inside a .pub__badges row the row itself owns the spacing. */
+.pub__badges .pub__year {
+  margin-bottom: 0;
+}
+
+.pub__type {
+  display: inline-block;
+  font-size: var(--fs-xs);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--grey-600);
+  background: var(--grey-100);
+  border: 1px solid var(--colour-border);
+  border-radius: var(--radius-sm);
+  padding: 0.15rem 0.55rem;
+}
+
 .pub__title {
   font-size: var(--fs-lg);
   margin-bottom: var(--space-2);
+}
+
+/* The title is the primary link to the published record; keep it looking like a
+   heading until hovered or focused so the list stays readable at a glance. */
+.pub__title a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.pub__title a:hover,
+.pub__title a:focus-visible {
+  color: var(--colour-link);
+  text-decoration: underline;
+  text-underline-offset: 2px;
 }
 
 .pub__authors {
   font-size: var(--fs-base);
   color: var(--colour-text-muted);
   margin-bottom: var(--space-2);
+}
+
+/* Marks Jamal Hossain within an author list without altering the printed text. */
+.pub__me {
+  color: var(--colour-text);
+  font-weight: 700;
 }
 
 .pub__meta {
@@ -1300,6 +1347,12 @@ small,
   gap: var(--space-4);
   font-size: var(--fs-sm);
   font-weight: 600;
+}
+
+/* DOIs are long, unbreakable-looking strings; let them wrap rather than force
+   the page to scroll sideways on a narrow screen. */
+.pub__links a {
+  overflow-wrap: anywhere;
 }
 
 /* Filter buttons (progressive enhancement — see js/script.js) */
@@ -1333,6 +1386,68 @@ small,
   background: var(--navy-800);
   border-color: var(--navy-800);
   color: var(--white);
+}
+
+
+/* Numbered research-interest list (research.html). Uses a CSS counter so the
+   numbering stays correct if items are added or reordered. */
+.interest-list {
+  list-style: none;
+  counter-reset: interest;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: var(--space-5);
+}
+
+.interest-list > li {
+  counter-increment: interest;
+  position: relative;
+  background: var(--white);
+  border: 1px solid var(--colour-border);
+  border-radius: var(--radius-lg);
+  border-left: 4px solid var(--accent-500);
+  box-shadow: var(--shadow-sm);
+  padding: var(--space-5) var(--space-6) var(--space-5) calc(var(--space-6) + 2.6rem);
+}
+
+.interest-list > li::before {
+  content: counter(interest);
+  position: absolute;
+  left: var(--space-6);
+  top: var(--space-5);
+  width: 1.9rem;
+  height: 1.9rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: var(--fs-sm);
+  font-weight: 700;
+  color: var(--accent-700);
+  background: var(--accent-100);
+  border-radius: 50%;
+}
+
+.interest-list h3 {
+  font-size: var(--fs-md);
+  margin-bottom: var(--space-2);
+}
+
+.interest-list p {
+  margin-bottom: 0;
+  color: var(--colour-text-muted);
+}
+
+@media (max-width: 560px) {
+  .interest-list > li {
+    padding: var(--space-5);
+    padding-top: calc(var(--space-5) + 2.4rem);
+  }
+
+  .interest-list > li::before {
+    left: var(--space-5);
+    top: var(--space-4);
+  }
 }
 
 
@@ -1548,6 +1663,14 @@ legend {
   max-width: 42ch;
   margin-top: var(--space-4);
   line-height: 1.6;
+}
+
+/* Independence disclaimer: present on every page, but deliberately quieter than
+   the surrounding footer text. */
+.footer-independence {
+  font-size: var(--fs-sm);
+  font-style: italic;
+  opacity: 0.75;
 }
 
 .footer-list {

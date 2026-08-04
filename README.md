@@ -48,7 +48,9 @@ jhstat-website/            <- repository root (deploy this directly)
 | Production branch | `main` |
 | Node version | not required |
 
-Every push to `main` triggers a redeploy, usually within a minute.
+Every push to `main` triggers a production redeploy, usually within a minute. Pushes to
+`development` produce a **preview deployment** at a separate URL, which is where changes
+should be reviewed before they reach the live site.
 
 ### Custom domain
 
@@ -56,43 +58,49 @@ Add `jhstat.co.uk` as the custom domain in the Pages project. Add `www.jhstat.co
 
 ---
 
-## Checklist: replacing the current GitHub files
+## Editing workflow
 
-The repository currently contains a placeholder `index.html`. Replace it as follows.
+All work happens on the `development` branch. `main` is the production branch and is only
+ever updated through a reviewed pull request.
 
-**Option A — GitHub web interface (no tools needed)**
-
-1. Open `github.com/jamalstat/jhstat-website` and make sure you are on the `main` branch.
-2. Delete the existing placeholder `index.html` (open it → the "..." menu → **Delete file** → commit).
-3. Click **Add file → Upload files**.
-4. Drag in **all** of the root-level files: `index.html`, `about.html`, `services.html`, `research.html`, `publications.html`, `training.html`, `blog.html`, `contact.html`, `privacy.html`, `404.html`, `favicon.svg`, `robots.txt`, `sitemap.xml`, `README.md`.
-5. Drag in the `css`, `js`, `images` and `files` **folders** as well. (Chrome and Edge accept folder drag-and-drop and preserve the structure. If your browser will not, upload the files individually and type the folder path into the filename box, e.g. `css/style.css`.)
-6. Commit directly to `main` with a message such as `Replace placeholder with full site`.
-7. Watch the Cloudflare Pages dashboard for the deployment to finish, then load `https://jhstat.co.uk`.
-
-**Option B — Git command line**
-
-```bash
-git clone https://github.com/jamalstat/jhstat-website.git
-cd jhstat-website
-
-# Remove the old placeholder, keeping the .git folder intact
-git rm index.html
-
-# Copy every file and folder from this project into the repository root,
-# then stage and commit:
-git add .
-git commit -m "Replace placeholder with full JH Stat website"
-git push origin main
+```
+Claude Code edits the local development branch
+  ↓
+GitHub Desktop review (inspect the diff file by file)
+  ↓
+commit to development
+  ↓
+push development to GitHub
+  ↓
+Cloudflare creates a preview deployment
+  ↓
+review the preview in a browser
+  ↓
+open a pull request from development into main
+  ↓
+merge only after approval
 ```
 
-**After deploying, verify:**
+**Rules that keep this safe:**
 
-- [ ] `https://jhstat.co.uk` loads the new homepage, not the placeholder
-- [ ] Styles are applied (if the page looks like unstyled text, `css/style.css` did not upload)
-- [ ] `https://jhstat.co.uk/robots.txt` and `/sitemap.xml` both load
-- [ ] `https://jhstat.co.uk/not-a-real-page` shows the custom 404 page, correctly styled
-- [ ] The favicon appears in the browser tab
+- Never edit, commit to, or push to `main` directly.
+- Never merge into `main` without reviewing the Cloudflare preview first.
+- Review every diff in GitHub Desktop before committing — a static site has no tests or
+  type checker to catch a mistake for you.
+- Keep `index.html` in the repository root. Cloudflare Pages publishes the root.
+
+**Before merging into `main`, verify on the preview URL:**
+
+- [ ] Styles are applied (if the page looks like unstyled text, `css/style.css` did not deploy)
+- [ ] The photograph, hero avatar and favicon all appear
+- [ ] `/robots.txt` and `/sitemap.xml` both load
+- [ ] A made-up URL such as `/not-a-real-page` shows the custom 404 page, correctly styled
+- [ ] Every DOI link on `publications.html` opens the correct paper
+- [ ] The mobile menu opens and closes
+
+**After merging, verify on the live site:**
+
+- [ ] `https://jhstat.co.uk` shows the new version
 - [ ] `www.jhstat.co.uk` redirects to `jhstat.co.uk`
 
 ---
@@ -148,13 +156,13 @@ git push origin main
 
 ## What still needs to be added
 
-Search the project for `TODO` to find every placeholder in context.
-
 ### Done
 
 - **Photograph** — `images/jamal-hossain.jpg` (about page) and `images/jamal-hossain-avatar.jpg` (homepage hero avatar)
 - **Social sharing image** — `images/og-image.png`, typographic navy card
 - **Profile URLs** — ORCID, LinkedIn, Google Scholar and ResearchGate are live in the footers of all ten pages, on `about.html`, `contact.html` and `publications.html`, and in the `sameAs` structured data on `index.html` and `about.html`
+- **Publications** — nine genuine publications on `publications.html`, filterable by type, with three of them featured on `index.html`. No placeholder publications remain.
+- **Research interests** — `research.html` lists five genuine research interests. The fake project cards have been removed; a commented template remains for adding real projects later.
 
 ### Still outstanding
 
@@ -165,16 +173,19 @@ Search the project for `TODO` to find every placeholder in context.
 
 **Content**
 
-- Real publications — `publications.html` (six placeholders) and `index.html` (three placeholders)
-- Real project descriptions — `research.html` (four placeholders)
-- Blog articles — `blog.html` explains how to add real posts in a `blog/` folder
+- Selected projects — `research.html` carries a commented template. Only add projects you can describe publicly, with no confidential detail.
+- Blog articles — `blog.html` explains how to add real posts in a `blog/` folder. The three cards there are clearly labelled as in preparation and link to nothing.
 
 **Decisions**
 
 - Whether to name your university and the year of your PhD (currently described without naming the institution)
 - Whether to publish indicative rates (`services.html`, `training.html`)
-- Whether to register with the ICO (`privacy.html` §11)
-- The PubMed link on `publications.html` searches your ORCID iD. That is precise but currently returns only one article, because it only finds papers where the publisher attached your ORCID. See the comment above that link for the alternatives.
+- Whether ICO registration applies (`privacy.html` §11 — the page currently states the position is being confirmed and makes no claim of registration)
+
+### Confirmed
+
+- **Email** — `jamal@jhstat.co.uk` is live and monitored, routed through Cloudflare Email Routing. It appears as a `mailto:` link on all ten pages, in the structured data, and as the contact form's action.
+- **Software** — R, Stata, SPSS and AMOS are the core consultancy packages. Git, Quarto and R Markdown are described as reproducibility tools only, not as statistical analysis software.
 
 ---
 
