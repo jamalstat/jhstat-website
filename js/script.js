@@ -179,7 +179,7 @@
     var enquiryForm = document.getElementById('enquiry-form');
 
     if (enquiryForm) {
-      var ENQUIRY_ADDRESS = 'jamal@jhstat.co.uk';
+      var ENQUIRY_ADDRESS = 'contact@jhstat.co.uk';
 
       // Some email clients (notably Outlook on Windows) silently truncate very
       // long mailto: URLs. Warn rather than lose the end of someone's summary.
