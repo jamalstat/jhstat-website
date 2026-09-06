@@ -165,6 +165,13 @@ hr {
   margin: var(--space-7) 0;
 }
 
+/* Wraps a wide table so it scrolls within its own container rather than forcing
+   the whole page to scroll sideways on a narrow screen. */
+.table-scroll {
+  overflow-x: auto;
+  margin: var(--space-7) 0;
+}
+
 table {
   border-collapse: collapse;
   width: 100%;

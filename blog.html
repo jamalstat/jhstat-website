@@ -52,9 +52,10 @@
   }
   </script>
   <!--
-    TODO: once real articles are published, add a BlogPosting entry per article.
-    Do not add BlogPosting markup for the placeholder cards below — they are not
-    published articles and marking them up as such would be misleading.
+    Each published article carries its own BlogPosting markup on its own page
+    (see blog/sample-size-clinical-study.html). Do not add BlogPosting markup for
+    the in-preparation cards below — they are not published articles and marking
+    them up as such would be misleading.
   -->
 </head>
 
@@ -124,20 +125,19 @@
     <section class="section section--tight" aria-labelledby="notice-heading">
       <div class="container container--narrow">
         <div class="panel panel--note reveal">
-          <h2 id="notice-heading">The blog is in preparation</h2>
+          <h2 id="notice-heading">About this blog</h2>
           <p>
-            The JH Stat blog is currently under development. Planned articles will cover applied
-            statistics, health research methods, responsible use of AI in health research and
-            reproducible analysis.
+            The JH Stat blog covers applied statistics, health research methods, responsible use of
+            AI in health research and reproducible analysis.
           </p>
           <p>
-            No articles have been published yet. The three cards below are
+            The first article is published below. The remaining cards are
             <strong>planned topics</strong>, shown to indicate the kind of writing this section
-            will contain — they are not published articles and cannot yet be read.
+            will contain — they are clearly marked and cannot yet be read.
           </p>
           <p class="mb-0">
-            If you would like to be told when writing begins, or if there is a topic you would find
-            useful, <a href="/contact">get in touch</a>.
+            If you would like to be told when new articles are published, or if there is a topic
+            you would find useful, <a href="/contact">get in touch</a>.
           </p>
         </div>
       </div>
@@ -165,11 +165,11 @@
       <div class="container">
 
         <div class="section-head">
-          <p class="eyebrow">Planned</p>
-          <h2 id="posts-heading">Topics in preparation</h2>
+          <p class="eyebrow">Articles</p>
+          <h2 id="posts-heading">Articles and topics in preparation</h2>
           <p class="lead">
-            Each topic below is in preparation. None has been written or published yet, so there is
-            nothing to read at this stage.
+            Published articles can be read in full. Cards marked <em>in preparation</em> have not
+            been written yet.
           </p>
         </div>
 
@@ -183,9 +183,10 @@
           2. Copy any existing page (for example privacy.html) as a starting
              point so the header, navigation and footer stay consistent.
           3. Save it as blog/your-article-slug.html, update the <title>,
-             meta description, canonical URL and Open Graph tags, and adjust
-             the relative links so they point up one level, e.g.
-             href="../css/style.css" and href="../index.html".
+             meta description, canonical URL and Open Graph tags, and make every
+             href and src ROOT-RELATIVE (href="/css/style.css", src="/js/script.js",
+             href="/"), because the page sits one level deep. See
+             blog/sample-size-clinical-study.html for a working example.
           4. Write the article inside <main> using the .prose class for the
              body text.
           5. Replace one of the in-preparation cards below with a real card. Only
@@ -197,10 +198,10 @@
                  <time datetime="2026-09-14">14 September 2026</time>
                  <span>6 min read</span>
                </div>
-               <h3><a href="blog/your-article-slug.html">Article title</a></h3>
+               <h3><a href="/blog/your-article-slug">Article title</a></h3>
                <p>One or two sentence summary of the article.</p>
                <p class="post-card__footer">
-                 <a class="link-arrow" href="blog/your-article-slug.html">Read the article</a>
+                 <a class="link-arrow" href="/blog/your-article-slug">Read the article</a>
                </p>
              </article>
 
@@ -217,19 +218,20 @@
         -->
         <div class="grid grid--3">
 
-          <article class="post-card panel--placeholder reveal">
-            <span class="placeholder-flag">In preparation — not yet written</span>
+          <article class="post-card reveal">
             <div class="post-card__meta">
-              <span class="badge badge--muted">Applied statistics</span>
-              <span>Planned article</span>
+              <span class="badge">Applied statistics</span>
+              <time datetime="2026-09-06">6 September 2026</time>
             </div>
-            <h3>What a sample size calculation is actually telling you</h3>
+            <h3><a href="/blog/sample-size-clinical-study">How many participants do I need for a clinical study?</a></h3>
             <p>
-              Sample size calculations are often treated as a box to tick for a funder. This piece
-              will look at what the assumptions behind the number really commit a study to, and why
-              a power curve is usually more informative than a single figure.
+              Sample size follows from the research question, the primary outcome, the design and
+              the planned analysis. What drives the number, how designs differ, a worked example,
+              and allowing for dropout.
             </p>
-            <p class="post-card__footer"><em>Not yet published</em></p>
+            <p class="post-card__footer">
+              <a class="link-arrow" href="/blog/sample-size-clinical-study">Read the article</a>
+            </p>
           </article>
 
           <article class="post-card panel--placeholder reveal">
