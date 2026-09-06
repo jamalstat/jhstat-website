@@ -752,16 +752,6 @@ small,
   margin-bottom: var(--space-6);
 }
 
-/* Single-line credibility statement beneath the hero call-to-action buttons.
-   Deliberately quieter than .hero__text so it supports rather than competes. */
-.hero__credibility {
-  font-size: var(--fs-sm);
-  color: #aebecd;
-  max-width: 54ch;
-  margin-top: var(--space-5);
-  margin-bottom: 0;
-}
-
 .hero__person {
   display: flex;
   align-items: center;
