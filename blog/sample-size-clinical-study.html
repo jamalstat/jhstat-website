@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- ===== SEO ===== -->
+  <title>Sample Size for a Clinical Study: How Many Participants? | JH Stat</title>
+  <meta name="description" content="How to work out how many participants a clinical study needs: what drives sample size, how designs differ, a worked example, and allowing for dropout.">
+  <link rel="canonical" href="https://jhstat.co.uk/blog/sample-size-clinical-study">
+  <meta name="author" content="Jamal Hossain">
+  <meta name="robots" content="index, follow">
+  <meta name="theme-color" content="#0a1a2f">
+
+  <!-- ===== Open Graph / social sharing ===== -->
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="JH Stat">
+  <meta property="og:locale" content="en_GB">
+  <meta property="og:title" content="How many participants do I need for a clinical study?">
+  <meta property="og:description" content="How to work out how many participants a clinical study needs: what drives sample size, how designs differ, a worked example, and allowing for dropout.">
+  <meta property="og:url" content="https://jhstat.co.uk/blog/sample-size-clinical-study">
+  <meta property="og:image" content="https://jhstat.co.uk/images/og-image.png">
+  <meta property="og:image:alt" content="JH Stat — independent statistical consultancy for health and clinical research">
+  <meta property="article:published_time" content="2026-09-06">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="How many participants do I need for a clinical study?">
+  <meta name="twitter:description" content="What drives sample size, how study designs differ, a worked example, and allowing for dropout.">
+  <meta name="twitter:image" content="https://jhstat.co.uk/images/og-image.png">
+
+  <!--
+    IMPORTANT — WHY THIS PAGE USES ROOT-RELATIVE LINKS
+    This article lives one level deep at /blog/sample-size-clinical-study.
+    Page-relative links such as "css/style.css" would resolve against /blog/
+    and break. Every href and src therefore begins with "/" so it always
+    resolves from the site root. Do not change these to page-relative links.
+  -->
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <!-- Marks the document as JavaScript-enabled before the stylesheet is applied, so the
+       reveal-on-scroll animations never flash. Without JavaScript the CSS rule
+       html:not(.js) .reveal keeps all content permanently visible. -->
+  <script>document.documentElement.classList.add('js');</script>
+  <link rel="stylesheet" href="/css/style.css">
+
+  <!-- ===== Structured data: BlogPosting =====
+       Entity identifiers (#organisation, #jamal-hossain) match those used
+       site-wide so this article resolves to the same Person and Organisation. -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "How many participants do I need for a clinical study?",
+    "description": "How to work out how many participants a clinical study needs: what drives sample size, how designs differ, a worked example, and allowing for dropout.",
+    "url": "https://jhstat.co.uk/blog/sample-size-clinical-study",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://jhstat.co.uk/blog/sample-size-clinical-study"
+    },
+    "datePublished": "2026-09-06",
+    "inLanguage": "en-GB",
+    "image": "https://jhstat.co.uk/images/og-image.png",
+    "author": {
+      "@type": "Person",
+      "@id": "https://jhstat.co.uk/#jamal-hossain",
+      "name": "Jamal Hossain",
+      "honorificSuffix": "PhD",
+      "jobTitle": "Founder and Principal Statistician",
+      "url": "https://jhstat.co.uk/about"
+    },
+    "publisher": {
+      "@type": "ProfessionalService",
+      "@id": "https://jhstat.co.uk/#organisation",
+      "name": "JH Stat",
+      "url": "https://jhstat.co.uk/"
+    },
+    "isPartOf": {
+      "@type": "Blog",
+      "@id": "https://jhstat.co.uk/blog",
+      "name": "JH Stat Blog"
+    },
+    "about": [
+      "Sample size calculation",
+      "Statistical power",
+      "Clinical research methods",
+      "Study design"
+    ]
+  }
+  </script>
+</head>
+
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <!-- ================= HEADER ================= -->
+  <header class="site-header">
+    <div class="container header-inner">
+
+      <a class="brand" href="/" aria-label="JH Stat — home page">
+        <svg class="brand__mark" viewBox="0 0 64 64" aria-hidden="true" focusable="false">
+          <rect width="64" height="64" rx="12" fill="#0a1a2f"></rect>
+          <rect x="12" y="36" width="6" height="14" rx="1.5" fill="#128a9b"></rect>
+          <rect x="21" y="29" width="6" height="21" rx="1.5" fill="#1aa3b5"></rect>
+          <rect x="30" y="22" width="6" height="28" rx="1.5" fill="#7fd0da"></rect>
+          <text x="40" y="30" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="20" font-weight="700" fill="#ffffff">JH</text>
+        </svg>
+        <span class="brand__text">
+          <span class="brand__name">JH Stat</span>
+          <span class="brand__strap">Statistical Consulting</span>
+        </span>
+      </a>
+
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-navigation">
+        <span class="nav-toggle__bars" aria-hidden="true"></span>
+        <span class="visually-hidden">Open main menu</span>
+      </button>
+
+      <nav class="nav" id="primary-navigation" aria-label="Primary">
+        <ul class="nav__list">
+          <li><a class="nav__link" href="/">Home</a></li>
+          <li><a class="nav__link" href="/about">About</a></li>
+          <li><a class="nav__link" href="/services">Services</a></li>
+          <li><a class="nav__link" href="/research">Research</a></li>
+          <li><a class="nav__link" href="/publications">Publications</a></li>
+          <li><a class="nav__link" href="/training">Training</a></li>
+          <li><a class="nav__link" href="/blog" aria-current="page">Blog</a></li>
+          <li><a class="nav__link" href="/contact">Contact</a></li>
+        </ul>
+        <a class="btn btn--primary btn--small nav__cta" href="/contact">Discuss Your Project</a>
+      </nav>
+
+    </div>
+  </header>
+
+  <main id="main">
+
+    <!-- ================= ARTICLE HEADER ================= -->
+    <section class="page-hero">
+      <div class="container">
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+          <ol>
+            <li><a href="/">Home</a></li>
+            <li><a href="/blog">Blog</a></li>
+            <li aria-current="page">Sample size for a clinical study</li>
+          </ol>
+        </nav>
+        <h1>How many participants do I need for a clinical study?</h1>
+        <p>
+          Sample size is not a single formula. It follows from the research question, the primary
+          outcome, the design and the planned analysis.
+        </p>
+      </div>
+    </section>
+
+    <!-- ================= ARTICLE BODY ================= -->
+    <article class="section">
+      <div class="container container--narrow">
+
+        <p class="small">
+          By Jamal Hossain, PhD &mdash; Founder and Principal Statistician
+          &nbsp;&middot;&nbsp;
+          Published <time datetime="2026-09-06">6 September 2026</time>
+        </p>
+
+        <div class="prose">
+
+          <p class="lead">
+            It is usually the first statistical question a research team asks, and often the one
+            with the least satisfying answer: <strong>it depends</strong>. Not because the question
+            is vague, but because sample size is a consequence of other decisions rather than a
+            starting point. Change the primary outcome and the number changes. Change the design and
+            it changes again.
+          </p>
+          <p>
+            What follows is how that number is actually arrived at, what information you need before
+            it can be, and the mistakes that most often cause trouble at review.
+          </p>
+
+          <h2>What actually determines the number</h2>
+          <p>
+            For a study designed to detect a difference, four quantities drive the calculation.
+          </p>
+          <p>
+            <strong>The target difference.</strong> This is the difference the study is designed to
+            detect, and it is the input that most affects the answer. It should be justified rather
+            than assumed &mdash; in relation to what would be important to patients, clinicians or
+            decision-makers, and to what is realistic for the intervention and outcome concerned. It
+            is not necessarily the absolute minimum clinically important difference: a study may
+            reasonably be designed around a difference that is both important and plausible given
+            what the intervention could achieve. The DELTA<sup>2</sup> guidance sets out the
+            recognised approaches to specifying and justifying it, and expects the reasoning to be
+            reported alongside the number.<sup><a href="#ref-2">2</a></sup>
+          </p>
+          <p>
+            <strong>Variability.</strong> For a continuous outcome, the standard deviation. For a
+            binary outcome, the expected event rate in the control group. For time-to-event data,
+            the expected number of events rather than the number of participants.
+          </p>
+          <p>
+            <strong>The significance level (type I error).</strong> Conventionally 5%, two-sided.
+          </p>
+          <p>
+            <strong>Power.</strong> The probability of detecting the target difference if it is
+            real. Commonly 80% or 90%, but this is a convention rather than a requirement, and the
+            right choice depends on the consequences of missing a real effect.
+          </p>
+          <p>
+            Two of these are statistical conventions. The other two are substantive judgements, and
+            they are where the real work lies. A sample size is only as defensible as the
+            assumptions behind it, which is why the assumptions &mdash; not just the number &mdash;
+            belong in the protocol. Reporting guidelines expect exactly
+            that.<sup><a href="#ref-1">1</a></sup>
+          </p>
+
+          <h2>Hypothesis testing or precision?</h2>
+          <p>
+            Not every study is testing a hypothesis, and not every sample size calculation should be
+            based on power.
+          </p>
+          <p>
+            If the aim is to <strong>estimate</strong> something &mdash; a prevalence, a diagnostic
+            accuracy, a mean score &mdash; the relevant question is not &ldquo;what power do I
+            have?&rdquo; but &ldquo;how precise will my estimate be?&rdquo; You choose the sample
+            size that makes the confidence interval narrow enough to be useful.
+          </p>
+          <p>
+            To illustrate: estimating a proportion near 50%, a 95% confidence interval of roughly
+            &plusmn;5 percentage points needs about 385 participants; tightening that to
+            &plusmn;4 points needs about 600. Nothing is being tested &mdash; the question is simply
+            how much uncertainty you can live with.
+          </p>
+          <p>
+            Precision-based planning is often the more honest framing for observational and
+            descriptive work, and it avoids inventing a target difference for a study that was never
+            designed to detect one.<sup><a href="#ref-4">4</a></sup>
+          </p>
+
+          <h2>Different designs, different calculations</h2>
+          <p>
+            The same research area can require quite different calculations depending on how the
+            study is built:
+          </p>
+          <ul>
+            <li><strong>Comparing two means.</strong> Driven by the target difference and the standard deviation.</li>
+            <li><strong>Binary outcomes.</strong> Driven by the expected proportions in each group. Rare outcomes need substantially larger samples.</li>
+            <li><strong>Time-to-event outcomes.</strong> Driven by the expected <strong>number of events</strong>, not the number of people. A study with long follow-up and few events can be underpowered despite recruiting well.</li>
+            <li><strong>Cluster-randomised trials.</strong> Randomising practices, wards or schools rather than individuals means outcomes within a cluster are correlated, and the sample must be inflated.</li>
+            <li><strong>Longitudinal and repeated-measures studies.</strong> Repeated measurements add information, but correlated information; the correlation between measurements matters as much as their number.</li>
+            <li><strong>Diagnostic accuracy studies.</strong> Usually precision-based, and sized separately for sensitivity and specificity &mdash; which means the number of people <em>with</em> the condition often drives recruitment.</li>
+          </ul>
+          <p>
+            Observational studies are not exempt. Reporting guidance for observational research asks
+            explicitly how the study size was arrived at.<sup><a href="#ref-9">9</a></sup> Design
+            choice comes before the arithmetic; if you are still weighing options, that is a
+            <a href="/services#study-design">study design</a> conversation rather than a
+            calculation.
+          </p>
+
+          <h2>A worked example</h2>
+          <div class="panel panel--note">
+            <p class="mb-0">
+              <strong>This is an illustration, not a recommendation.</strong> The numbers are
+              hypothetical and are here to show the logic, not to be reused.
+            </p>
+          </div>
+          <p>
+            Suppose a two-arm parallel-group trial with a continuous primary outcome measured once
+            at follow-up.
+          </p>
+
+          <div class="table-scroll">
+            <table>
+              <caption class="visually-hidden">Assumptions used in the illustrative sample size calculation</caption>
+              <thead>
+                <tr>
+                  <th scope="col">Assumption</th>
+                  <th scope="col">Value</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><th scope="row">Target difference</th><td>5 points</td></tr>
+                <tr><th scope="row">Standard deviation (both arms)</th><td>10 points</td></tr>
+                <tr><th scope="row">Significance level</th><td>5%, two-sided</td></tr>
+                <tr><th scope="row">Power</th><td>90%</td></tr>
+                <tr><th scope="row">Allocation</th><td>1:1</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <p>
+            The familiar textbook formula uses the normal distribution:
+          </p>
+          <p>
+            <code>n per group &asymp; 2 &times; (1.96 + 1.2816)&sup2; &times; 10&sup2; / 5&sup2; = 84.1 &rarr; 85</code>
+          </p>
+          <p>
+            That is useful for seeing what drives the answer, but it is not the calculation to rely
+            on. Because the standard deviation is estimated from the data, the analysis uses a
+            <em>t</em> distribution, and the sample size should too. Solving the t-based calculation
+            gives <strong>86 participants per group, 172 in total</strong>, with complete outcome
+            data.<sup><a href="#ref-3">3</a></sup>
+          </p>
+          <p>
+            The difference matters more than it looks. At 85 per group the exact power is 89.99%
+            &mdash; just short of the 90% target &mdash; while at 86 per group it is 90.3%. Round
+            up; never down.
+          </p>
+          <p>
+            Now allow for attrition. If 15% are expected not to provide primary outcome data, divide
+            rather than multiply:
+          </p>
+          <p>
+            <code>86 &divide; (1 &minus; 0.15) = 101.18 &rarr; 102 per group</code>
+          </p>
+          <p>
+            So the <strong>recruitment target is 102 per group, 204 in total</strong>.
+          </p>
+          <p>
+            Two things are worth noticing. First, the assumptions do the work: for fixed
+            variability, significance level and power, the required sample size is approximately
+            inversely proportional to the square of the target difference. That is why reducing the
+            target difference from 5 points to 3 points would increase the required sample
+            substantially. Second, dropping from 90% to 80% power would reduce the requirement to 64
+            per group &mdash; which is why power should be chosen deliberately rather than defaulted
+            to.
+          </p>
+          <p>
+            Any real study should be calculated with appropriate software, using assumptions and a
+            method that match the planned analysis &mdash; including any covariate adjustment,
+            interim analyses or allocation ratio other than 1:1. The figures above are a teaching
+            illustration of the logic, not a template.
+          </p>
+
+          <h2>Allowing for clustering</h2>
+          <p>
+            Where participants are grouped &mdash; patients within practices, pupils within schools
+            &mdash; outcomes within a cluster tend to be more similar than outcomes across clusters,
+            and the required sample increases. The standard inflation factor is:
+          </p>
+          <p>
+            <code>design effect = 1 + (m &minus; 1) &times; ICC</code>
+          </p>
+          <p>
+            where <code>m</code> is the average cluster size and ICC the intracluster correlation.
+            With 20 participants per cluster and an ICC of 0.02, that is
+            <code>1 + 19 &times; 0.02 = 1.38</code>. Applied to the 172 participants above, that is
+            about <strong>238 participants</strong>, which corresponds arithmetically to roughly 12
+            clusters of 20.
+          </p>
+          <p>
+            That arithmetic is only the starting point. It does not by itself establish an adequate
+            design, because a cluster trial must also account for the <strong>number of
+            clusters</strong> (few large clusters and many small ones are not equivalent),
+            <strong>variation in cluster size</strong>, <strong>attrition of whole clusters</strong>,
+            the <strong>degrees of freedom</strong> available when clusters are few, and the
+            <strong>intended analysis</strong>. Cluster trials are one of the areas where an
+            apparently small technical detail changes the answer
+            substantially.<sup><a href="#ref-8">8</a></sup>
+          </p>
+
+          <h2>Pilot and feasibility studies are different</h2>
+          <p>
+            A pilot or feasibility study conducted in preparation for a definitive trial has
+            feasibility as its primary purpose. It should not generally be designed or interpreted
+            as a definitive test of effectiveness. Its job is to answer questions such as: can we
+            recruit at the expected rate, is the intervention deliverable, is the outcome measure
+            acceptable, and do the study procedures work?
+          </p>
+          <p>
+            Effectiveness hypothesis testing is generally inappropriate in this setting, simply
+            because a study sized for feasibility is not adequately powered for it. A
+            non-significant result in a pilot tells you very little, and a significant one is
+            unreliable.
+          </p>
+          <p>
+            Pilot data can help inform an estimate of variability for the definitive study&rsquo;s
+            calculation, and that is a legitimate use. But estimates of the standard deviation from
+            small samples are themselves imprecise, and that imprecision should be acknowledged
+            &mdash; for example by using a conservative value, or by examining how the required
+            sample size changes across a plausible range. What a pilot does not give is a reliable
+            estimate of the treatment effect: effect estimates from small samples are unstable, and
+            using one as the target difference for the main trial is a common route to an
+            underpowered study.
+          </p>
+          <p>
+            The CONSORT extension for pilot and feasibility trials sets out how these studies should
+            be designed and reported,<sup><a href="#ref-5">5</a></sup> and Whitehead and colleagues
+            give a principled basis for choosing their size.<sup><a href="#ref-6">6</a></sup>
+          </p>
+
+          <h2>Why &ldquo;30 participants&rdquo; is not a general rule</h2>
+          <p>
+            The figure recurs, and it is worth being clear about where it comes from.
+          </p>
+          <p>
+            It is <strong>not</strong> a universal sample-size rule, and it has no connection to the
+            research question in a definitive study. Part of its currency comes from a statistical
+            folk memory about the central limit theorem, which concerns the behaviour of sampling
+            distributions, not whether a study can answer a clinical question.
+          </p>
+          <p>
+            Around 30 per arm has, however, appeared as a recommendation in particular
+            <strong>pilot-study</strong> contexts, including Lancaster and colleagues&rsquo; guidance
+            on pilot design and analysis.<sup><a href="#ref-7">7</a></sup> That is a rule of thumb
+            offered for a specific purpose, not a general standard &mdash; and modern practice is to
+            justify a pilot&rsquo;s size against its specific feasibility objective and the
+            parameter being estimated, rather than reaching for a default figure.
+          </p>
+          <p>
+            The practical test is straightforward: a defensible sample-size justification should be
+            tied to the study objective, primary outcome, design and the assumptions that drive the
+            calculation &mdash; whether that means a target difference and power, or a required
+            level of precision.
+          </p>
+
+          <h2>Allowing for dropout and missing data</h2>
+          <p>
+            Inflating for expected attrition &mdash; dividing by (1 &minus; dropout proportion)
+            &mdash; is standard and necessary. But it is an arithmetic adjustment, not a solution to
+            missing data.
+          </p>
+          <p>
+            Recruiting extra participants preserves <strong>power</strong>. It does not protect
+            against <strong>bias</strong> if the people with missing outcomes differ systematically
+            from those without. That is a separate problem, addressed in the analysis plan through a
+            pre-specified strategy for missing data, and White and colleagues set out how to think
+            about it for randomised trials.<sup><a href="#ref-10">10</a></sup>
+          </p>
+          <p>
+            Base the dropout estimate on something: comparable studies, the length of follow-up, the
+            burden of the outcome measure. An unexplained 20% is as arbitrary as an unexplained
+            sample size.
+          </p>
+
+          <h2>Common mistakes</h2>
+          <ul>
+            <li><strong>Working backwards from a feasible number.</strong> Deciding the study can recruit 60 and reverse-engineering a target difference that makes 60 sufficient. Reviewers recognise it.</li>
+            <li><strong>Taking the target difference from a small previous study.</strong> Small studies that reach significance tend to overstate effects, so this systematically underpowers the new study.</li>
+            <li><strong>Post-hoc power.</strong> Calculating power from the observed effect after the study has finished adds nothing; the confidence interval already conveys what the data support.</li>
+            <li><strong>Ignoring clustering.</strong> Analysing cluster-randomised data as if individually randomised overstates precision, in both planning and analysis.</li>
+            <li><strong>Multiple primary outcomes.</strong> More than one primary outcome raises the question of multiplicity, which affects the significance level and hence the sample size.</li>
+            <li><strong>Assuming bigger is always better.</strong> Beyond a point, extra participants buy little additional information while consuming resources and exposing more people to study procedures &mdash; a consideration with ethical weight, not just a budgetary one.</li>
+          </ul>
+
+          <h2>What to bring to a statistician</h2>
+          <p>
+            A sample size conversation moves quickly if you can supply:
+          </p>
+          <ul>
+            <li>The primary research question, stated as precisely as you can</li>
+            <li>The design &mdash; parallel groups, cluster, crossover, cohort, cross-sectional, diagnostic</li>
+            <li>The <strong>primary</strong> outcome, how it is measured and when</li>
+            <li>Expected values: control-group mean and standard deviation, or expected event rate &mdash; and where those figures come from</li>
+            <li>The target difference, and the reasoning behind it</li>
+            <li>The planned analysis, including any adjustment or covariates</li>
+            <li>Expected attrition, and the basis for that expectation</li>
+            <li>Recruitment constraints: available population, sites, timescale, budget</li>
+          </ul>
+          <p>
+            If some of these are unknown, that is normal, and identifying which assumptions the
+            answer is most sensitive to is part of the work. A single number is rarely the most
+            useful output &mdash; a small range showing how the requirement changes across plausible
+            assumptions is usually more informative, and more persuasive to a funding committee.
+          </p>
+
+          <h2 id="references">References</h2>
+          <ol class="list-tight small">
+            <li id="ref-1">
+              Schulz KF, Altman DG, Moher D. CONSORT 2010 Statement: updated guidelines for reporting
+              parallel group randomised trials. <em>BMJ</em> 2010;340:c332.
+              <a href="https://doi.org/10.1136/bmj.c332" target="_blank" rel="noopener noreferrer">doi.org/10.1136/bmj.c332</a>
+            </li>
+            <li id="ref-2">
+              Cook JA, Julious SA, Sones W, et al. DELTA<sup>2</sup> guidance on choosing the target
+              difference and undertaking and reporting the sample size calculation for a randomised
+              controlled trial. <em>BMJ</em> 2018;363:k3750.
+              <a href="https://doi.org/10.1136/bmj.k3750" target="_blank" rel="noopener noreferrer">doi.org/10.1136/bmj.k3750</a>
+            </li>
+            <li id="ref-3">
+              Julious SA. Sample sizes for clinical trials with Normal data. <em>Statistics in
+              Medicine</em> 2004;23(12):1921&ndash;86.
+              <a href="https://doi.org/10.1002/sim.1783" target="_blank" rel="noopener noreferrer">doi.org/10.1002/sim.1783</a>
+            </li>
+            <li id="ref-4">
+              Bland JM. The tyranny of power: is there a better way to calculate sample size?
+              <em>BMJ</em> 2009;339:b3985.
+              <a href="https://doi.org/10.1136/bmj.b3985" target="_blank" rel="noopener noreferrer">doi.org/10.1136/bmj.b3985</a>
+            </li>
+            <li id="ref-5">
+              Eldridge SM, Chan CL, Campbell MJ, et al. CONSORT 2010 statement: extension to
+              randomised pilot and feasibility trials. <em>BMJ</em> 2016;355:i5239.
+              <a href="https://doi.org/10.1136/bmj.i5239" target="_blank" rel="noopener noreferrer">doi.org/10.1136/bmj.i5239</a>
+            </li>
+            <li id="ref-6">
+              Whitehead AL, Julious SA, Cooper CL, Campbell MJ. Estimating the sample size for a
+              pilot randomised trial to minimise the overall trial sample size for the external
+              pilot and main trial for a continuous outcome variable. <em>Statistical Methods in
+              Medical Research</em> 2016;25(3):1057&ndash;73.
+              <a href="https://doi.org/10.1177/0962280215588241" target="_blank" rel="noopener noreferrer">doi.org/10.1177/0962280215588241</a>
+            </li>
+            <li id="ref-7">
+              Lancaster GA, Dodd S, Williamson PR. Design and analysis of pilot studies:
+              recommendations for good practice. <em>Journal of Evaluation in Clinical Practice</em>
+              2004;10(2):307&ndash;12.
+              <a href="https://doi.org/10.1111/j..2002.384.doc.x" target="_blank" rel="noopener noreferrer">doi.org/10.1111/j..2002.384.doc.x</a>
+            </li>
+            <li id="ref-8">
+              Campbell MK, Piaggio G, Elbourne DR, Altman DG. CONSORT 2010 statement: extension to
+              cluster randomised trials. <em>BMJ</em> 2012;345:e5661.
+              <a href="https://doi.org/10.1136/bmj.e5661" target="_blank" rel="noopener noreferrer">doi.org/10.1136/bmj.e5661</a>
+            </li>
+            <li id="ref-9">
+              von Elm E, Altman DG, Egger M, et al. The Strengthening the Reporting of Observational
+              Studies in Epidemiology (STROBE) statement: guidelines for reporting observational
+              studies. <em>Journal of Clinical Epidemiology</em> 2008;61(4):344&ndash;9.
+              <a href="https://doi.org/10.1016/j.jclinepi.2007.11.008" target="_blank" rel="noopener noreferrer">doi.org/10.1016/j.jclinepi.2007.11.008</a>
+            </li>
+            <li id="ref-10">
+              White IR, Horton NJ, Carpenter J, Pocock SJ. Strategy for intention to treat analysis
+              in randomised trials with missing outcome data. <em>BMJ</em> 2011;342:d40.
+              <a href="https://doi.org/10.1136/bmj.d40" target="_blank" rel="noopener noreferrer">doi.org/10.1136/bmj.d40</a>
+            </li>
+          </ol>
+
+        </div>
+      </div>
+    </article>
+
+    <!-- ================= CALL TO ACTION ================= -->
+    <section class="cta" aria-labelledby="cta-heading">
+      <div class="container">
+        <h2 id="cta-heading">Need help planning your sample size?</h2>
+        <p>
+          JH Stat provides statistical support for study design, sample size and power calculations
+          across health, clinical and applied research &mdash; including written justifications for
+          protocols, ethics applications and grant submissions.
+        </p>
+        <div class="btn-group btn-group--centred">
+          <a class="btn btn--primary" href="/contact">Discuss your study</a>
+          <a class="btn btn--ghost" href="/services#sample-size">Sample size and power</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ================= FOOTER ================= -->
+  <footer class="site-footer">
+    <div class="container">
+
+      <div class="footer-grid">
+
+        <div class="footer-brand">
+          <span class="brand__name">JH Stat</span>
+          <p>
+            Independent statistical consultancy, research collaboration and training for health
+            research. Founded and led by Jamal Hossain, PhD, Founder and Principal Statistician.
+          </p>
+          <p class="footer-independence">
+            JH Stat is an independent consultancy and does not imply institutional endorsement.
+          </p>
+        </div>
+
+        <div>
+          <h2>Site</h2>
+          <ul class="footer-list">
+            <li><a href="/about">About</a></li>
+            <li><a href="/services">Services</a></li>
+            <li><a href="/research">Research</a></li>
+            <li><a href="/publications">Publications</a></li>
+            <li><a href="/training">Training</a></li>
+            <li><a href="/blog">Blog</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h2>Services</h2>
+          <ul class="footer-list">
+            <li><a href="/services#study-design">Study design</a></li>
+            <li><a href="/services#sample-size">Sample size and power</a></li>
+            <li><a href="/services#analysis">Statistical analysis</a></li>
+            <li><a href="/services#psychometrics">Psychometrics</a></li>
+            <li><a href="/services#grants">Grant support</a></li>
+            <li><a href="/services#review">Statistical review</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h2>Contact</h2>
+          <ul class="footer-list">
+            <li><a href="mailto:contact@jhstat.co.uk">contact@jhstat.co.uk</a></li>
+            <li>United Kingdom</li>
+            <li><a href="https://www.linkedin.com/in/dr-jamal-hossain-fhea-47050071/" rel="noopener">LinkedIn</a></li>
+            <li><a href="https://orcid.org/0000-0002-2728-1055" rel="noopener">ORCID</a></li>
+          </ul>
+        </div>
+
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; <span data-current-year>2026</span> JH Stat. All rights reserved.</p>
+        <ul>
+          <li><a href="/privacy">Privacy notice</a></li>
+          <li><a href="/contact">Contact</a></li>
+          <li><a href="/sitemap.xml">Sitemap</a></li>
+        </ul>
+      </div>
+
+    </div>
+  </footer>
+
+  <script src="/js/script.js" defer></script>
+</body>
+</html>
